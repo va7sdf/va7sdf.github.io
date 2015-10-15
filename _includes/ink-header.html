@@ -1,0 +1,38 @@
+<header class="site-header">
+	<nav class="ink-navigation ink-grid">
+		<ul class="menu horizontal black push-left medium-push-center small-push-center tiny-push-center">
+			<li class="hide-all show-tiny show-small show-medium"><button class="fa fa-bars left-drawer-trigger"></button></li>
+			<li class="logoPlaceholder">
+				<a class="logoPlaceholder" href="{{ site.baseurl }}/">{{ site.title }}</a>
+			</li>
+		</ul>
+		<ul class="menu horizontal black push-right hide-small hide-tiny hide-medium">
+			{% for page in site.pages %}
+				{% if page.title %}
+					<li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</nav>
+</header>
+
+<div class="left-drawer">
+	<ul>
+		{% for page in site.pages %}
+			{% if page.title %}
+				<li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+			{% endif %}
+		{% endfor %}
+		<li><a href="#">foo</a></li>
+		<li><a href="#">foo</a></li>
+		<li><a href="#">foo</a></li>
+		<li><a href="#">foo</a></li>
+		<li><a href="#">foo</a></li>
+		<li><a href="#">foo</a></li>
+		<li><a href="#">foo</a></li>
+		<li><a href="#">foo</a></li>
+		<li><a href="#">foo</a></li>
+		<li><a href="#">foo</a></li>
+		<li><a href="#">foo</a></li>
+	</ul>
+</div>
