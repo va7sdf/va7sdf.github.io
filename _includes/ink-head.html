@@ -13,8 +13,8 @@
   <!-- Place favicon.ico and apple-touch-icon(s) here  -->
 
   <!-- load Ink's css from the cdn -->
-  <link rel="stylesheet" type="text/css" href="http://fastly.ink.sapo.pt/3.1.10/css/ink.css">
-  <link rel="stylesheet" type="text/css" href="http://fastly.ink.sapo.pt/3.1.10/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ site.CDN }}/css/ink.css">
+  <link rel="stylesheet" type="text/css" href="{{ site.CDN }}/css/font-awesome.min.css">
 
   <!-- load Ink's css for IE8 -->
   <!--[if lt IE 9 ]>
@@ -22,16 +22,16 @@
   <![endif]-->
 
   <!-- test browser flexbox support and load legacy grid if unsupported -->
-  <script type="text/javascript" src="http://fastly.ink.sapo.pt/3.1.10/js/modernizr.js"></script>
+  <script type="text/javascript" src="{{ site.CDN }}/js/modernizr.js"></script>
   <script type="text/javascript">
       Modernizr.load({
         test: Modernizr.flexbox,
-        nope : 'http://fastly.ink.sapo.pt/3.1.10/css/ink-legacy.min.css'
+        nope : '{{ site.CDN }}/css/ink-legacy.min.css'
       });
   </script>
 
   <!-- load Ink's javascript files from the cdn -->
-  <script type="text/javascript" src="http://fastly.ink.sapo.pt/3.1.10/js/ink-all.js"></script>
+  <script type="text/javascript" src="{{ site.CDN }}/js/ink-all.js"></script>
 
   <link rel="stylesheet" href="{{ "/css/ink-main.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
