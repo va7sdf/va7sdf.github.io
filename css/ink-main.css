@@ -1,9 +1,0 @@
----
----
-.site-header {
-	position: fixed;
-	z-index: 100;
-	width: 100%;
-	background: #333;
-	border-bottom: 5px #c00 solid!important;
-}
