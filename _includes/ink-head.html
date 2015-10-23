@@ -13,9 +13,8 @@
   <!-- Place favicon.ico and apple-touch-icon(s) here  -->
 
   <!-- load Ink's css from the cdn -->
-  <link rel="stylesheet" type="text/css" href="{{ site.CDN }}/css/ink-flex.css">
+  <link rel="stylesheet" type="text/css" href="{{ site.CDN }}/css/ink-flex.min.css">
   <link rel="stylesheet" type="text/css" href="{{ site.CDN }}/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="{{ site.CDN }}/css/ink-flex.css">
 
   <!-- load Ink's css for IE8 -->
   <!--[if lt IE 9 ]>
@@ -33,6 +32,7 @@
 
   <!-- load Ink's javascript files from the cdn -->
   <script type="text/javascript" src="{{ site.CDN }}/js/ink-all.js"></script>
+  <script type="text/javascript" src="{{ site.CDN }}/js/autoload.js"></script>
 
   <link rel="stylesheet" href="{{ "/css/ink-local.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
