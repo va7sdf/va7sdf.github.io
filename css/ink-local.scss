@@ -22,6 +22,16 @@ $accent-red:				#c00;
 
 body { font-size: 18px; }
 
+.avatar img {
+	border: 2px solid $accent-red;
+	margin: 40px;
+	padding: 0;
+	border-radius: 1000px;
+	-moz-border-radius: 1000px;
+	width: 140px;
+	height: 140px;
+}
+
 #top-bar {
 	position: fixed;
 	top: 0;
@@ -34,7 +44,7 @@ body { font-size: 18px; }
 
 #top-bar a {
 	height: 100%;
-	padding: .98em 1.28em;
+	padding: .68em 1.28em;
 	color: #ccc;
 	text-decoration: none;
 	width: 220px;
@@ -64,7 +74,7 @@ body { font-size: 18px; }
 }
 
 .right-drawer {
-	margin-top: 59px;
+	margin-top: 2.36em; // 1 + .68x2 (the padding of the menu items)
 	background: $right-drawer-background;
 }
 
@@ -83,7 +93,7 @@ body { font-size: 18px; }
 .right-drawer .items li a {
 	display: block;
 	color: #b3b3b3;
-	padding: .8em 1em;
+	padding: .48em 1.28em;
 	text-decoration: none;
 }
 
@@ -99,6 +109,10 @@ body { font-size: 18px; }
 
 .right-drawer .items li:hover a {
 	color: #fff;
+}
+
+a:hover span.fa{
+	color: $accent-red;
 }
 
 .right-drawer .items li.active {

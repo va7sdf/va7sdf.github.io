@@ -7,9 +7,12 @@
 </div>
 
 <div class="right-drawer">
+	<div class="avatar">
+		<img src ="{{ site.baseurl }}/assets/avatar.jpg">
+	</div>
 	<ul class="items">
 		<li>
-			<a href="{{ site.baseurl }}/"><span class="fa fa-home quarter-right-space"></span><span>Home</span></a>
+			<a class="pressed" href="{{ site.baseurl }}/"><span class="fa fa-home quarter-right-space"></span><span>Home</span></a>
 		</li>
 		{% for page in site.pages %}
 			{% if page.title %}
@@ -22,5 +25,7 @@
 				</li>
 			{% endif %}
 		{% endfor %}
+		<li>
+			<a href="https://github.com/va7sdf/va7sdf.github.io"><span class="fa fa-github quarter-right-space"></span><span>Source</span></a>
 	</ul>
 </div>
