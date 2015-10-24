@@ -1,4 +1,7 @@
 <div id="top-bar">
+	<div class="push-left align-left">
+		<a href="{{ site.baseurl }}/" class="fa fa-home"></a>
+	</div>
 	<div class="push-right align-left">
 		<a href="#" class="right-drawer-trigger fa fa-reorder">
 			<span class="sans uppercase">Menu</span>
@@ -11,9 +14,6 @@
 		<img src ="{{ site.baseurl }}/assets/avatar.jpg">
 	</div>
 	<ul class="items">
-		<li>
-			<a class="pressed" href="{{ site.baseurl }}/"><span class="fa fa-home quarter-right-space"></span><span>Home</span></a>
-		</li>
 		{% for page in site.pages %}
 			{% if page.title %}
 				<li>
