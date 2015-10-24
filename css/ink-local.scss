@@ -4,6 +4,7 @@
 @charset "utf-8";
 
 
+$body-background:           #f9f9f9;
 $top-background:			#212121;
 $right-drawer-background:	#3d3d3d;
 $accent-red:				#c00;
@@ -20,12 +21,14 @@ $accent-red:				#c00;
 
 * :focus { outline: 0; }
 
-body { font-size: 18px; }
+body {
+	background: $body-background;
+	font-size: 18px;
+}
 
 .avatar img {
 	border: 2px solid $accent-red;
 	margin: 40px;
-	padding: 0;
 	border-radius: 1000px;
 	-moz-border-radius: 1000px;
 	width: 140px;
@@ -71,6 +74,10 @@ body { font-size: 18px; }
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	transform: translate(0, 0)
+}
+
+header {
+	margin-top: 100px;
 }
 
 .right-drawer {
