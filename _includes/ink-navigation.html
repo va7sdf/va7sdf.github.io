@@ -1,20 +1,15 @@
-<div id="top-bar" class="column-group">
-	<div class="all-50 align-left">
-		<a href="#" class="left-drawer-trigger fa fa-reorder">
-			<span class="sans uppercase hide-tiny hide-small">Menu</span>
-		</a>
-	</div>
-	<div class="all-50 align-right">
-		<a id="top-bar-title" href="{{ site.baseurl }}/">
-			<span class="sans uppercase">{{ site.title }}</span>
+<div id="top-bar">
+	<div class="push-right align-left">
+		<a href="#" class="right-drawer-trigger fa fa-reorder">
+			<span class="sans uppercase">Menu</span>
 		</a>
 	</div>
 </div>
 
-<div class="left-drawer">
+<div class="right-drawer">
 	<ul class="items">
 		<li>
-			<a href="#"><span class="fa fa-home quarter-right-space"></span><span>Home</span></a>
+			<a href="{{ site.baseurl }}/"><span class="fa fa-home quarter-right-space"></span><span>Home</span></a>
 		</li>
 		{% for page in site.pages %}
 			{% if page.title %}
