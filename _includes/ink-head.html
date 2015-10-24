@@ -1,39 +1,39 @@
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <meta name="author" content="Gordon M. Celesta, gordo@sdf.lonestar.org">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+	<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+	<meta name="author" content="Gordon M. Celesta, gordo@sdf.lonestar.org">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-  <!-- Place favicon.ico and apple-touch-icon(s) here  -->
+	<!-- Place favicon.ico and apple-touch-icon(s) here	-->
 
-  <!-- load Ink's css from the cdn -->
-  <link rel="stylesheet" type="text/css" href="{{ site.CDN }}/css/ink-flex.min.css">
-  <link rel="stylesheet" type="text/css" href="{{ site.CDN }}/css/font-awesome.min.css">
+	<!-- load Ink's css from the cdn -->
+	<link rel="stylesheet" type="text/css" href="{{ site.CDN }}/css/ink-flex.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ site.CDN }}/css/font-awesome.min.css">
 
-  <!-- load Ink's css for IE8 -->
-  <!--[if lt IE 9 ]>
-      <link rel="stylesheet" href="http://cdn.ink.sapo.pt/3.1.10/css/ink-ie.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
-  <![endif]-->
+	<!-- load Ink's css for IE8 -->
+	<!--[if lt IE 9 ]>
+			<link rel="stylesheet" href="http://cdn.ink.sapo.pt/3.1.10/css/ink-ie.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<![endif]-->
 
-  <!-- test browser flexbox support and load legacy grid if unsupported -->
-  <script type="text/javascript" src="{{ site.CDN }}/js/modernizr.js"></script>
-  <script type="text/javascript">
-      Modernizr.load({
-        test: Modernizr.flexbox,
-        nope : '{{ site.CDN }}/css/ink-legacy.min.css'
-      });
-  </script>
+	<!-- test browser flexbox support and load legacy grid if unsupported -->
+	<script type="text/javascript" src="{{ site.CDN }}/js/modernizr.js"></script>
+	<script type="text/javascript">
+		Modernizr.load({
+			test: Modernizr.flexbox,
+			nope : '{{ site.CDN }}/css/ink-legacy.min.css'
+		});
+	</script>
 
-  <!-- load Ink's javascript files from the cdn -->
-  <script type="text/javascript" src="{{ site.CDN }}/js/ink-all.js"></script>
+	<!-- load Ink's javascript files from the cdn -->
+	<script type="text/javascript" src="{{ site.CDN }}/js/ink-all.js"></script>
 
-  <link rel="stylesheet" href="{{ "/css/ink-local.css" | prepend: site.baseurl }}">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+	<link rel="stylesheet" href="{{ "/css/ink-local.css" | prepend: site.baseurl }}">
+	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+	<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
 </head>
