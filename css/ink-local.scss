@@ -50,7 +50,6 @@ body {
 	padding: .68em 1.28em;
 	color: #ccc;
 	text-decoration: none;
-	width: 220px;
 }
 
 .top-bar a:hover {
@@ -58,12 +57,12 @@ body {
 	background: #444;
 }
 
-.top-bar .align-left a span {
-	margin-left: .4em;
+.top-bar .right-drawer-trigger {
+	width: 220px;
 }
 
-.top-bar .align-right a span {
-	margin-right: .4em;
+.top-bar a span {
+	margin-left: .4em;
 }
 
 .top-bar-title {
