@@ -2,14 +2,14 @@
 layout: default
 ---
 
-<div class="home all-75 small-100 tiny-100 push-center">
+<div class="home push-center">
 
 	{% for post in site.posts %}
 	<div class="post-overview">
 
 		<h1 class="post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
 
-		<div class="post-meta">
+		<div class="post-meta condensed-300 small">
 			<span class="fa fa-user"></span><span class="post-author">{{ post.author }}</span>
 			<br class="hide-all show-small show-tiny" />
 			<span class="fa fa-clock-o"></span><span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
@@ -17,11 +17,12 @@ layout: default
 
 		<p class="post-excerpt">{{ post.excerpt }}</a>
 
-		<p class="post-link align-right"><a href="{{ post.url | prepend: site.baseurl }}">Read More...</a></p>
+		<div class="post-read-more align-right">
+		<button class="ink-button"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Read More</a></button>
+		</div>
 
 	</div>
 	{% endfor %}
 
-	<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 </div>
