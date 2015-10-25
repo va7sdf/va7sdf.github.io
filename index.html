@@ -2,17 +2,25 @@
 layout: default
 ---
 
-<div class="home">
+<div class="home all-75 small-100 tiny-100 push-center">
 
-	<h1 class="page-heading">Posts</h1>
+	{% for post in site.posts %}
+	<div class="post-overview">
 
-		{% for post in site.posts %}
-				<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+		<h1 class="post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
 
-		<h2>{{ post.title }}</h2>
-		<p>{{ post.excerpt }}</a>
-		<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Read More...</a>
-		{% endfor %}
+		<div class="post-meta">
+			<span class="fa fa-user"></span><span class="post-author">{{ post.author }}</span>
+			<br class="hide-all show-small show-tiny" />
+			<span class="fa fa-clock-o"></span><span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+		</div>
+
+		<p class="post-excerpt">{{ post.excerpt }}</a>
+
+		<p class="post-link align-right"><a href="{{ post.url | prepend: site.baseurl }}">Read More...</a></p>
+
+	</div>
+	{% endfor %}
 
 	<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 

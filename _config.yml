@@ -12,3 +12,12 @@ github_username:  va7sdf
 
 # Build settings
 markdown: kramdown
+
+defaults:
+  -
+    scope:
+      path: _posts
+      type: posts
+    values:
+      author: "Gordon M. Celesta"
+      layout: default
