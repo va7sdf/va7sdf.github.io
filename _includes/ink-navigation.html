@@ -1,9 +1,9 @@
 <nav class="top-bar content-drawer">
 	<div class="push-left align-left">
-		<a href="{{ site.baseurl }}/" class="fa fa-home"></a>
+		<a href="{{ site.baseurl }}/" class="fa fa-fw fa-home"></a>
 	</div>
 	<div class="push-right align-left">
-		<a href="#" class="right-drawer-trigger fa fa-reorder">
+		<a href="#" class="right-drawer-trigger fa fa-fw fa-reorder">
 			<span class="sans uppercase">Menu</span>
 		</a>
 	</div>
@@ -13,23 +13,28 @@
 	<div class="avatar">
 		<img src ="{{ site.baseurl }}/assets/avatar.jpg">
 	</div>
-	<ul class="items">
+	<ul class="items fw-300">
+		<!-- Begin links to static pages. -->
 		{% for page in site.pages %}
 			{% if page.title %}
 				<li>
 					<a href="{{ page.url | prepend: site.baseurl }}">
 						{% if page.fa %}
-							<span class="fa {{ page.fa }} quarter-right-space"></span>
+							<span class="fa fa-fw {{ page.fa }} quarter-right-space"></span>
 						{% endif %}
 						<span>{{ page.title }}</span></a>
 				</li>
 			{% endif %}
 		{% endfor %}
+		<!-- End links to static pages. -->
+
+		<!-- Begin custom menu items.  (Keep in mind the space between the Font Awesome icon span and the text link span.) -->
 		<li>
-			<a href="https://github.com/va7sdf/va7sdf.github.io"><span class="fa fa-github quarter-right-space"></span><span>Source</span></a>
+			<a href="https://github.com/va7sdf/va7sdf.github.io"><span class="fa fa-fw fa-github quarter-right-space"></span> <span>Source</span></a>
 		</li>
 		<li>
-			<a href="{{ "/feed.xml" | prepend: site.baseurl }}"><span class="fa fa-rss quarter-right-space"></span><span>RSS</span></a>
+			<a href="{{ "/feed.xml" | prepend: site.baseurl }}"><span class="fa fa-fw fa-rss quarter-right-space"></span> <span>RSS</span></a>
 		</li>
+		<!-- End custom menu items. -->
 	</ul>
 </div>
