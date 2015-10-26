@@ -2,27 +2,28 @@
 layout: default
 ---
 
-<div class="home push-center">
+<div class="column-group">
+	<div class="home all-70 small-100 tiny-100 push-center">
 
-	{% for post in site.posts %}
-	<div class="post-overview">
+		{% for post in site.posts %}
+		<div class="post-overview padding">
 
-		<h1 class="post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+			<h1 class="post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
 
-		<div class="post-meta condensed-300 small">
-			<span class="fa fa-user"></span><span class="post-author">{{ post.author }}</span>
-			<br class="hide-all show-small show-tiny" />
-			<span class="fa fa-clock-o"></span><span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+			<div class="post-meta condensed-300 small">
+				<span class="fa fa-user"></span><span class="post-author">{{ post.author }}</span>
+				<br class="hide-all show-small show-tiny" />
+				<span class="fa fa-clock-o"></span><span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+			</div>
+
+			<p class="post-excerpt">{{ post.excerpt }}</a>
+
+			<div class="post-read-more align-right">
+			<button class="ink-button"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Read More</a></button>
+			</div>
+
 		</div>
-
-		<p class="post-excerpt">{{ post.excerpt }}</a>
-
-		<div class="post-read-more align-right">
-		<button class="ink-button"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Read More</a></button>
-		</div>
+		{% endfor %}
 
 	</div>
-	{% endfor %}
-
-
 </div>
