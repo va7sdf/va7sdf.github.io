@@ -21,9 +21,11 @@ $accent-red:				#c00;
 
 * :focus { outline: 0; }
 
+html,
 body {
 	background: $body-background;
 	font-size: 18px;
+	height: 100%;
 }
 
 .avatar img {
@@ -136,4 +138,21 @@ a:hover span.fa{
 	span {
 		margin-right: .4em;
 	}
+}
+
+.push, footer {
+	height: 120px;
+	margin-top: 0;
+}
+footer {
+	background: #ccc;
+	border: 0;
+}
+
+.wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -120px;
+	overflow: auto;
 }
