@@ -1,7 +1,7 @@
 # Site settings
-title: Gordon M. Celesta
+title: Inkling
 description: >
-    A personal blog about *NIX, human-computer interaction, web design, and other odds-n-sods...
+    A personal blog for Gordon M. Celesta about *NIX, human-computer interaction, web design, and other odds-n-sods...
 
 CDN: "http://fastly.ink.sapo.pt/3.1.10"
 
