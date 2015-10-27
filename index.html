@@ -2,13 +2,13 @@
 layout: default
 ---
 
-<div class="column-group">
-	<div class="home all-70 small-100 tiny-100 push-center">
+<div class="column-group gutters push-center">
+	<div class="home all-80 small-100 tiny-100">
 
-		{% for post in site.posts %}
-		<div class="post-overview padding">
+		{% for post in site.posts limit:1 %}
+		<div class="post-overview half-padding">
 
-			<h1 class="post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+			<h1 class="post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
 
 			<div class="post-meta condensed-300 small">
 				<span class="fa fa-user"></span><span class="post-author">{{ post.author }}</span>
@@ -16,14 +16,40 @@ layout: default
 				<span class="fa fa-clock-o"></span><span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
 			</div>
 
-			<p class="post-excerpt">{{ post.excerpt }}</a>
+			<div class="post-excerpt">{{ post.excerpt }}</div>
 
 			<div class="post-read-more align-right">
-			<button class="ink-button"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Read More</a></button>
+				<button class="ink-button"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Read More</a></button>
 			</div>
 
 		</div>
 		{% endfor %}
-
 	</div>
 </div>
+
+<!-- This section only displays for two or more posts.  The width of each box is proportional to the number of posts; up to a maximum of four -->.
+
+{% if site.posts.size > 1 %}
+	{% assign archived = site.posts.size | minus:1 %}
+	{% if archived > 4 %}
+		{% assign archived = 4 %}
+	{% endif %}
+	{% assign width = 100 | divided_by:archived %}
+	<div class="column-group push-center">
+		<div class="all-80 small-100 tiny-100">
+			<div class="column-group gutters">
+				{% for post in site.posts offset:1 limit:4 %}
+				<div class="all-{{ width }} small-100 tiny-100">
+					<div class="recent-post-overview half-padding" style="overflow: hidden">
+						<h6 class="recent-post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h6>
+						<div class="recent-post-excerpt medium">{{ post.excerpt | truncate: 124, "..." }}</div>
+						<div class="post-read-more align-right">
+							<button class="ink-button small"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Read More</a></button>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endif %}

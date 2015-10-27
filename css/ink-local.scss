@@ -125,10 +125,18 @@ a:hover span.fa{
 	color: #fff;
 }
 
-.post-overview,
-.recent-list,
-.archive-list {
+.post-overview {
 	background: #fff;
+	overflow: hidden;
+}
+
+.recent-post-overview {
+	background: #fff;
+	.recent-post-excerpt {
+		overflow: hidden;
+		min-height: 11em;
+		max-height: 11em;
+	}
 }
 
 .post-meta {
