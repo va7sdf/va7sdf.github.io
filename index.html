@@ -18,7 +18,7 @@ layout: default
 
 			<div class="post-excerpt">{{ post.excerpt }}</div>
 
-			<div class="post-read-more align-right">
+			<div class="post-read-more push-right">
 				<button class="ink-button"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Read More</a></button>
 			</div>
 
@@ -43,7 +43,7 @@ layout: default
 					<div class="recent-post-overview half-padding" style="overflow: hidden">
 						<h6 class="recent-post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h6>
 						<div class="recent-post-excerpt medium">{{ post.excerpt | truncate: 124, "..." }}</div>
-						<div class="post-read-more align-right">
+						<div class="post-read-more push-right">
 							<button class="ink-button small"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Read More</a></button>
 						</div>
 					</div>
