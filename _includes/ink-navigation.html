@@ -27,12 +27,27 @@
 		<!-- End links to static pages. -->
 
 		<!-- Begin custom menu items.  (Keep in mind the space between the Font Awesome icon span and the text link span.) -->
+		{% if site.github_username %}
 		<li>
-			<a href="https://github.com/va7sdf/va7sdf.github.io"><span class="fa fa-fw fa-github quarter-right-space"></span> <span>Source</span></a>
+			<a href="https://github.com/{{ site.github_username }}"><span class="fa fa-fw fa-github quarter-right-space"></span> <span>GitHub</span></a>
 		</li>
+		{% endif %}
+		<li>
+		{% if site.twitter_username %}
+		<li>
+			<a href="https://twitter.com/{{ site.twitter_username }}"><span class="fa fa-fw fa-twitter quarter-right-space"></span> <span>Twitter</span></a>
+		</li>
+		{% endif %}
+		{% if site.linkedin_username %}
+		<li>
+			<a href="https://linkedin.com/in/{{ site.linkedin_username }}"><span class="fa fa-fw fa-linkedin quarter-right-space"></span> <span>LinkedIn</span></a>
+		</li>
+		{% endif %}
+		{% if site.rss == true%}
 		<li>
 			<a href="{{ "/feed.xml" | prepend: site.baseurl }}"><span class="fa fa-fw fa-rss quarter-right-space"></span> <span>RSS</span></a>
 		</li>
+		{% endif %}
 		<!-- End custom menu items. -->
 	</ul>
 </div>

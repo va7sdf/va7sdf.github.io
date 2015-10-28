@@ -8,7 +8,10 @@ CDN: "http://fastly.ink.sapo.pt/3.1.10"
 url: "http://gordon.celesta.me"
 email: gordo@sdf.lonestar.org
 twitter_username: va7sdf
-github_username:  va7sdf
+github_username: va7sdf
+linkedin_username: va7sdf
+
+rss: true
 
 # Build settings
 markdown: kramdown
