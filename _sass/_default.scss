@@ -1,0 +1,26 @@
+// _default.scss
+
+$FOOTER:			120px;
+
+html {
+	height: 100%;
+	body {
+		color: $GRAY33;
+		background: $GRAY85;
+		font-size: 18px;
+		height: 100%;
+	}
+}
+
+.push, footer {
+	height: $FOOTER;
+	margin-top: 0;
+}
+
+.wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto (0 - $FOOTER);
+	overflow: auto;
+}

@@ -1,8 +1,6 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset "utf-8";
-
 
 $ACCENT:			#cc0000;
 $GRAY13:			#212121;
@@ -12,133 +10,15 @@ $GRAY66:			#a8a8a8;
 $GRAY85:			#d9d9d9;
 $WHITE:				#ffffff;
 
-$FOOTER:			120px;
+@import
+	"default",
+	"post",
+	"page",
+	"index",
+	"ink-navigation",
+	"ink-header",
+	"ink-footer"
+	;
 
 // fix focus issue
 * :focus { outline: 0; }
-
-html,
-body {
-	color: $GRAY33;
-	background: $GRAY85;
-	font-size: 18px;
-	height: 100%;
-}
-
-.avatar img {
-	border: 2px solid $ACCENT;
-	margin: 40px;
-	border-radius: 1000px;
-	-moz-border-radius: 1000px;
-	width: 140px;
-	height: 140px;
-}
-
-.top-bar {
-	position: fixed;
-	top: 0;
-	right: 0;
-	left: 0;
-	z-index: 100;
-	border-bottom: 5px $ACCENT solid;
-	background: $GRAY13;
-}
-
-.top-bar a {
-	height: 100%;
-	padding: .68em 1.28em;
-	color: $GRAY85;
-	text-decoration: none;
-}
-
-.top-bar a:hover {
-	color: $WHITE;
-	background: $GRAY24;
-}
-
-.top-bar .right-drawer-trigger {
-	width: 220px;
-}
-
-.top-bar a span {
-	margin-left: .4em;
-}
-
-header {
-	margin-top: 100px;
-}
-
-.right-drawer {
-	margin-top: 2.36em; // 1 + .68x2 (the padding of the menu items)
-	background: $GRAY24;
-}
-
-.right-drawer .items {
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-}
-
-.right-drawer .items li {
-	margin: 0;
-	border-bottom: 1px solid $GRAY24;
-	text-transform: uppercase;
-}
-
-.right-drawer .items li a {
-	display: block;
-	color: $GRAY85;
-	padding: .48em 1.28em;
-	text-decoration: none;
-}
-
-.right-drawer .items li:hover {
-	background: $GRAY13;
-}
-
-.right-drawer .items li:hover a {
-	color: $WHITE;
-}
-
-a:hover span.fa{
-	color: $ACCENT;
-}
-
-.post-overview {
-	background: $WHITE;
-	overflow: hidden;
-}
-
-.recent-post-overview {
-	background: $WHITE;
-	.recent-post-excerpt {
-		overflow: hidden;
-		min-height: 11em;
-		max-height: 11em;
-	}
-}
-
-.post-meta {
-	color: $GRAY66;
-	padding: 0 0 .3em 0;
-	border-bottom: 1px solid $GRAY66;
-	span {
-		margin-right: .4em;
-	}
-}
-
-.push, footer {
-	height: $FOOTER;
-	margin-top: 0;
-}
-footer {
-	background: $GRAY13;
-}
-
-.wrap {
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin: 0 auto (0 - $FOOTER);
-	overflow: auto;
-}

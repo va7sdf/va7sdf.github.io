@@ -1,0 +1,24 @@
+// _index.scss
+
+.post-overview {
+	background: $WHITE;
+	overflow: hidden;
+}
+
+.recent-post-overview {
+	background: $WHITE;
+	.recent-post-excerpt {
+		overflow: hidden;
+		min-height: 11em;
+		max-height: 11em;
+	}
+}
+
+.post-meta {
+	color: $GRAY66;
+	padding: 0 0 .3em 0;
+	border-bottom: 1px solid $GRAY66;
+	span {
+		margin-right: .4em;
+	}
+}
