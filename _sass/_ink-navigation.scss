@@ -1,7 +1,33 @@
 // _ink-navigation.scss
 
-.top-bar .right-drawer-trigger {
-	width: 220px;
+.top-bar {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 100;
+	border-bottom: 5px $ACCENT solid;
+	background: $GRAY13;
+	
+	.right-drawer-trigger {
+		width: 220px;
+	}
+	
+	a {
+		height: 100%;
+		padding: .68em 1.28em;
+		color: $GRAY85;
+		text-decoration: none;
+			
+		&:hover {
+			color: $WHITE;
+			background: $GRAY24;
+		}
+		
+		span {
+			margin-left: .4em;
+		}
+	}
 }
 
 .avatar img {
@@ -13,64 +39,33 @@
 	height: 140px;
 }
 
-.top-bar {
-	position: fixed;
-	top: 0;
-	right: 0;
-	left: 0;
-	z-index: 100;
-	border-bottom: 5px $ACCENT solid;
-	background: $GRAY13;
-}
-
-.top-bar a {
-	height: 100%;
-	padding: .68em 1.28em;
-	color: $GRAY85;
-	text-decoration: none;
-}
-
-.top-bar a:hover {
-	color: $WHITE;
-	background: $GRAY24;
-}
-
-.top-bar a span {
-	margin-left: .4em;
-}
-
 .right-drawer {
 	margin-top: 2.36em; // 1 + .68x2 (the padding of the menu items)
 	background: $GRAY24;
-}
-
-.right-drawer .items {
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-}
-
-.right-drawer .items li {
-	margin: 0;
-	border-bottom: 1px solid $GRAY24;
-	text-transform: uppercase;
-}
-
-.right-drawer .items li a {
-	display: block;
-	color: $GRAY85;
-	padding: .48em 1.28em;
-	text-decoration: none;
-}
-
-.right-drawer .items li:hover {
-	background: $GRAY13;
-}
-
-.right-drawer .items li:hover a {
-	color: $WHITE;
-}
-
-a:hover span.fa{
-	color: $ACCENT;
+	
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		
+		li {
+			margin: 0;		
+			&:first-child {
+					border-top: 1px solid $GRAY33;
+			}
+			a {
+				display: block;
+				color: $GRAY85;
+				border-bottom: 1px solid $GRAY33;
+				text-transform: uppercase;
+				padding: .48em 1.28em;
+				text-decoration: none;
+		
+				&:hover {
+					background: $GRAY13;
+					color: $WHITE;
+				}
+			}
+		}
+	}
 }

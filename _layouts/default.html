@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 {% include ink-head.html %}
-
 <body class="ink-drawer">
 
 <!--[if lte IE 9 ]>
@@ -18,12 +16,12 @@
 -->
 <div class="wrap">
 {% include ink-navigation.html %}
+	<div class="push-header"></div>
 {% include ink-header.html %}
-
 	<div class="content-drawer ink-grid">
 		{{ content }}
 	</div>
-	<div class="push"></div>
+	<div class="push-footer"></div>
 </div>
 {% include ink-footer.html %}
 {% include ink-javascript.html %}

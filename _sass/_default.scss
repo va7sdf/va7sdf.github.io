@@ -1,5 +1,6 @@
 // _default.scss
 
+// FOOTER: controls the height of the 'sticky' footer
 $FOOTER:			120px;
 
 html {
@@ -12,7 +13,12 @@ html {
 	}
 }
 
-.push, footer {
+.push-header {
+	margin-top: 2.36em; // 1 + .68x2 (the padding of the menu items)
+}
+
+.push-footer,
+footer {
 	height: $FOOTER;
 	margin-top: 0;
 }
