@@ -2,15 +2,15 @@
 layout: default
 ---
 
+{% for post in site.posts limit:site.large_excerpts %}
 <div class="column-group gutters push-center">
 	<div class="home all-80 small-100 tiny-100">
 
-		{% for post in site.posts limit:1 %}
 		<div class="post-overview half-padding">
 
 			<h1 class="post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
 
-			<div class="post-meta condensed-300 small">
+			<div class="post-meta condensed-299 small">
 				<span class="fa fa-user"></span><span class="post-author">{{ post.author }}</span>
 				<br class="hide-all show-small show-tiny" />
 				<span class="fa fa-clock-o"></span><span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
@@ -23,22 +23,22 @@ layout: default
 			</div>
 
 		</div>
-		{% endfor %}
 	</div>
 </div>
+{% endfor %}
 
 <!-- This section only displays for two or more posts.  The width of each box is proportional to the number of posts; up to a maximum of four -->.
 
-{% if site.posts.size > 1 %}
-	{% assign archived = site.posts.size | minus:1 %}
-	{% if archived > 4 %}
-		{% assign archived = 4 %}
+{% if site.posts.size > site.large_excerpts %}
+	{% assign archived = site.posts.size | minus:site.large_excerpts %}
+	{% if archived > site.small_excerpts %}
+		{% assign archived = site.small_excerpts %}
 	{% endif %}
 	{% assign width = 100 | divided_by:archived %}
 	<div class="column-group push-center">
 		<div class="all-80 small-100 tiny-100">
 			<div class="column-group gutters">
-				{% for post in site.posts offset:1 limit:4 %}
+				{% for post in site.posts offset:site.large_excerpts limit:site.small_excerpts %}
 				<div class="all-{{ width }} small-100 tiny-100">
 					<div class="recent-post-overview half-padding" style="overflow: hidden">
 						<h6 class="recent-post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h6>

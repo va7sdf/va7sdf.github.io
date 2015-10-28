@@ -13,6 +13,10 @@ linkedin_username: va7sdf
 
 rss: true
 
+# home page layout (recommend < 4 small)
+large_excerpts: 2
+small_excerpts: 4
+
 # Build settings
 markdown: kramdown
 
