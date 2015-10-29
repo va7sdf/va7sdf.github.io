@@ -10,7 +10,10 @@ $GRAY66:			#a8a8a8;
 $GRAY85:			#d9d9d9;
 $WHITE:				#ffffff;
 
+$SPACING-UNIT:     30px;
+
 @import
+	"syntax-highlighting",
 	"default",
 	"post",
 	"page",
@@ -21,3 +24,10 @@ $WHITE:				#ffffff;
 
 // fix focus issue
 * :focus { outline: 0; }
+
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+    margin-bottom: $SPACING-UNIT / 2;
+}
