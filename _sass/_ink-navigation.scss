@@ -39,8 +39,9 @@
 	height: 140px;
 }
 
+ // 1 + .68x2 (the padding of the menu items)
 .right-drawer {
-	margin-top: 2.36em; // 1 + .68x2 (the padding of the menu items)
+	margin-top: 2.36em;
 	background: $GRAY24;
 	
 	ul {

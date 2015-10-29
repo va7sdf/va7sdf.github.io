@@ -13,20 +13,21 @@ html {
 	}
 }
 
-.push-header {
-	margin-top: 2.36em; // 1 + .68x2 (the padding of the menu items)
-}
-
-.push-footer,
-footer {
-	height: $FOOTER;
-	margin-top: 0;
-}
-
 .wrap {
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
 	margin: 0 auto (0 - $FOOTER);
 	overflow: auto;
+}
+ 
+// 1 + .68x2 (the padding of the menu items)
+.push-header {
+	height: 2.36em;
+}
+
+.push-footer,
+footer {
+	height: $FOOTER;
+	margin-top: 0;
 }
