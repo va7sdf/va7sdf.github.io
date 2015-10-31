@@ -21,6 +21,26 @@ layout: default
 				{{ content }}
 			</article>
 
+			<div class="post-nav top-space">
+				{% if page.previous.url %}
+				<div class="post-previous push-left half-top-padding">
+					<a href="{{ page.previous.url | prepend: site.baseurl }}">
+						<span class="fa fa-arrow-left quarter-right-space"></span>
+						<span class="show-all hide-small hide-tiny sans uppercase">{{ page.previous.title }}</span>
+						<span class="hide-all show-small show-tiny sans uppercase">Previous</span>
+					</a>
+				</div>
+				{% endif %}
+				{% if page.next.url %}
+				<div class="post-next push-right half-top-padding">
+					<a href="{{ page.next.url | prepend: site.baseurl }}">
+						<span class="show-all hide-small hide-tiny sans uppercase">{{ page.next.title }}</span>
+						<span class="hide-all show-small show-tiny sans uppercase">Next</span>
+						<span class="fa fa-arrow-right quarter-left-space"></span>
+					</a>
+				</div>
+				{% endif %}
+			</div>
 		</div>
 	</div>
 </div>
