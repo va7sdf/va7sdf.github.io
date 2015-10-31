@@ -25,6 +25,14 @@ $SPACING-UNIT:     30px;
 // fix focus issue
 * :focus { outline: 0; }
 
+a {
+	color: #e06666;
+	&:hover {
+		color: #d63232;
+		text-decoration: none;
+	}
+}
+
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
