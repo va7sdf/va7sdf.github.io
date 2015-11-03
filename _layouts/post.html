@@ -7,6 +7,9 @@ layout: default
 
 			<header class="post-header bottom-space">
 				<h1 class="post-title"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></h1>
+				{% if page.subtitle %}
+					<h2 class="post-subtitle fw-300">{{ page.subtitle }}</h2>
+				{% endif %}
 
 				<div class="post-meta condensed-300 small">
 					{% if page.author %}
