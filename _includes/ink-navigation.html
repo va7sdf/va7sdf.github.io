@@ -32,7 +32,11 @@
 			<a href="https://github.com/{{ site.github_username }}"><span class="fa fa-fw fa-github quarter-right-space"></span> <span>GitHub</span></a>
 		</li>
 		{% endif %}
+		{% if site.bitbucket_username %}
 		<li>
+			<a href="https://bitbucket.org/{{ site.bitbucket_username }}"><span class="fa fa-fw fa-bitbucket quarter-right-space"></span> <span>Bitbucket</span></a>
+		</li>
+		{% endif %}
 		{% if site.twitter_username %}
 		<li>
 			<a href="https://twitter.com/{{ site.twitter_username }}"><span class="fa fa-fw fa-twitter quarter-right-space"></span> <span>Twitter</span></a>
