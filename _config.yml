@@ -20,7 +20,7 @@ small_excerpts: 4
 
 # Build settings
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 
 defaults:
   -
