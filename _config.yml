@@ -20,8 +20,10 @@ small_excerpts: 4
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
+#highlighter: rouge
 
+kramdown:
+    input: GFM
 defaults:
   -
     scope:
