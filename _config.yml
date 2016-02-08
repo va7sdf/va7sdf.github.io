@@ -20,7 +20,7 @@ small_excerpts: 4
 
 # Build settings
 markdown: kramdown
-#highlighter: rouge
+future: false
 
 kramdown:
     input: GFM
