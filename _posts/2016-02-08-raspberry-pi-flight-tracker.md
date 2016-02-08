@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Raspberry Pi Live Flight Tracker"
+title: "Raspberry Pi Flight Tracker"
 ---
-One of the many cool things you can do with your Raspberry Pi is to add a special $30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a live flight data feeder for <a href="http://flightradar24.com/" rel="noreferrer">FlightRadar24</a> and [FlightAware](https://flightaware.com).
+One of the many cool things you can do with your Raspberry Pi is to add a special $30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a flight data feeder for <a href="http://flightradar24.com/" rel="noreferrer">FlightRadar24</a> and [FlightAware](https://flightaware.com).
 <!--- Had to use the HTML anchor for FlightRadar24.com per https://github.com/MalcolmRobb/dump1090/pull/71 -->
 
 A Pi feeder is an more affordable hobbyist option when compared to the expensive higher-end [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_–_broadcast) receivers such as the [Radarcape](http://modesbeast.com/radarcape.html), [Mode-S Beast](http://modesbeast.com/scope.html), or [Kinetic SBS Models](http://www.kinetic.co.uk/index.php).
