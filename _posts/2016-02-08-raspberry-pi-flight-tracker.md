@@ -2,26 +2,29 @@
 layout: post
 title: "Raspberry Pi Flight Tracker"
 ---
-One of the many cool things you can do with your Raspberry Pi is to add a special $30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a flight data feeder for <a href="http://flightradar24.com/" rel="noreferrer">FlightRadar24</a> and [FlightAware](https://flightaware.com).
 <!--- Had to use the HTML anchor for FlightRadar24.com per https://github.com/MalcolmRobb/dump1090/pull/71 -->
+One of the many cool things you can do with your Raspberry Pi is to add a special $30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a flight data feeder for <a href="http://flightradar24.com/" rel="noreferrer">FlightRadar24</a> and [FlightAware](https://flightaware.com). In return both sites offer enhanced memberships while you maintain your feed to them. A real bonus for aviation enthusiasts!
 
-A Pi feeder is an more affordable hobbyist option when compared to the expensive higher-end [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_–_broadcast) receivers such as the [Radarcape](http://modesbeast.com/radarcape.html), [Mode-S Beast](http://modesbeast.com/scope.html), or [Kinetic SBS Models](http://www.kinetic.co.uk/index.php).
+## Overview
+
 
 ## DVB-T USB Dongle
+
+because a typical DVB-T dongle costs $20-$30.
+
+A Pi feeder is a more affordable option for hobbyists when compared to the expensive higher-end [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_–_broadcast) receivers such as the [Radarcape](http://modesbeast.com/radarcape.html), [Mode-S Beast](http://modesbeast.com/scope.html), [Kinetic SBS Models](http://www.kinetic.co.uk/index.php), or [AirNav RadarBox](https://www.airnavsystems.com/RadarBox/index.html).
 
 As long as you purchase a DVB-T dongle based on the Realtek RTL2832U with the Rafael Micro R820T or R820T2 tuner, the Mode S decoder software, dump1090, can interface with it.
 
 The [NooElec NESDR Mini 2](http://www.amazon.ca/gp/product/B00PAGS0HO/) is recommended. I currently use the older [NooElec TV28Tv2](http://www.amazon.ca/gp/product/B00CM3LNMM/)
 
-## Raspberry Pi Configuration
-
-+ Static IP: Recommended so you can access the built-in dump1090 web interface; use network tools, such as netcat (nc) to view CSV output for debugging; or, use dynamic dns.
-
 ## Requirements
 
 + One USB 2.0 port. (Keep in mind the USB dongle is quite large and can interfere with access to other ports.)
-+ Raspbian (Wheezy or Jessie) either installed via NOOBS or from an image is fine.
++ Raspbian Wheezy or Jessie (full or lite) either installed via NOOBS or from an image is fine.
++ Accounts with 
 + Latitude, Longitude and altitude of antenna position - if you plan to use MLAT. (If your smartphones' built-in GPS only shows latitude and longitude, you can use a third-party app to get the altitude. Another option is to use FreeMapTools [Elevation Finder](https://www.freemaptools.com/elevation-finder.htm) or similar to obtain your latitude, longitude, and elevation. If you use the website, remember to then add the height of your antenna from the ground to get the altitude.)
++ Static IP \[recommended\] so you can access the built-in dump1090 web interface; use network tools, such as netcat (nc) to view CSV output for debugging; or, use dynamic dns.
 
 ---
 
@@ -34,9 +37,9 @@ With each command line, I've included screenshots of sample output for your refe
 ### FlightRadar Feeder Installation
 
 
-#### tl;dr
+#### tl;dr (too long; didn't read)
 
-jhis one-liner will download, install, and setup the FlightRadar24.com feeder and will then initiate the user configuration. What happens automatically is effectively the same as the steps followed during a manual install so you're free to use either method.
+This one-liner will download, install, and setup the FlightRadar24.com feeder and will then initiate the user configuration. What happens automatically is effectively the same as the steps followed during a manual install so you're free to use either method.
 
 	sudo bash -c "$(wget -O - http://repo.feed.flightradar24.com/install_fr24_rpi.sh)"
 
@@ -49,10 +52,6 @@ However, given that a typical Raspbian install is only configured with one login
 #### Manual Install
 
 These instructions are based on the instruction found within the FR24 forum post [New Flightradar24 feeding software for Raspberry Pie](http://forum.flightradar24.com/threads/8908-New-Flightradar24-feeding-software-for-Raspberry-Pie?p=66479#post66479) [*sic*].
-
-Based on already having an account with FR.
-
-I've included screenshots for each instruction demonstrating the expected output.
 
 1.	Import FR24 signing key
 
