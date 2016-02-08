@@ -14,12 +14,11 @@
 		</li>
 		<!-- Begin links to static pages. -->
 		{% for page in site.pages %}
-			{% if page.title %}
+		    <!-- Only include pages in menu items that have a fontawesome icon too -->
+			{% if page.fa && page.title %}
 				<li>
 					<a href="{{ page.url | prepend: site.baseurl }}">
-						{% if page.fa %}
-							<span class="fa fa-fw {{ page.fa }} quarter-right-space"></span>
-						{% endif %}
+						<span class="fa fa-fw {{ page.fa }} quarter-right-space"></span>
 						<span>{{ page.title }}</span></a>
 				</li>
 			{% endif %}
