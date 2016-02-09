@@ -22,9 +22,11 @@ The [NooElec NESDR Mini 2](http://www.amazon.ca/gp/product/B00PAGS0HO/) is recom
 
 + One USB 2.0 port. (Keep in mind the USB dongle is quite large and can interfere with access to other ports.)
 + Raspbian Wheezy or Jessie (full or lite) either installed via NOOBS or from an image is fine.
-+ Accounts with 
-+ Latitude, Longitude and altitude of antenna position - if you plan to use MLAT. (If your smartphones' built-in GPS only shows latitude and longitude, you can use a third-party app to get the altitude. Another option is to use FreeMapTools [Elevation Finder](https://www.freemaptools.com/elevation-finder.htm) or similar to obtain your latitude, longitude, and elevation. If you use the website, remember to then add the height of your antenna from the ground elevation to get the altitude.)
-+ Static IP \[recommended\] so you can access the built-in dump1090 web interface; use network tools, such as netcat (nc) to view CSV output for debugging; or, use dynamic dns.
++ Location for the antenna with no obstructions - outside or in a window is best.
++ \[optional\] Account(s) with <a href="http://flightradar24.com/" rel="noreferrer">FlightRadar24 Premium</a> and/or [FlightAware](https://flightaware.com), if you plan to feed data.  (Setting up the accounts is beyond the scope of this post.)
++ \[optional\] Latitude, longitude and altitude of antenna position, if you plan to use MLAT. (If your smartphones' built-in GPS only shows latitude and longitude, you can use a third-party app to get the altitude. Another option is to use FreeMapTools [Elevation Finder](https://www.freemaptools.com/elevation-finder.htm) or similar to obtain your approximate latitude, longitude, and elevation. If you use the website, remember to then add the height of your antenna from the ground elevation to get the altitude.)
++ \[optional\] SSH access, if you plan to operate your Pi headless.
++ \[optional\] Static IP so you can access the built-in dump1090 web interface; use network tools, such as netcat (nc) to view CSV output for debugging; or, use dynamic DNS behind your network.
 
 ---
 
@@ -161,11 +163,19 @@ These instructions follow those in sections two through four on [PiAware - dump1
 
 ## Testing
 
-### Netcat
+### dump1090 Built-in Web Server
 
-To see 
+With the `--net` argument passed to dump1090, it will also act as a web server on port 8080.  To view the web page, visit [http://192.168.1.31:8080/](http://192.168.1.31:8080/) using your browser.  (Remember to substitute 192.168.1.31 with the IP of your Pi.)
+
+### Netcat \[Advanced\]
+Netcat should be installed by default on Raspbian.  If you have configured dump1090 with the `--net` argument, you can use netcat to view a comma seperated values (CSV) output of the messages being decoded by dump1090 in real-time.
+
+From the Raspbian terminal, issue the following command line:
+
+	nc localhost 30003
+
+'localhost' may be substituted with the IP of your Pi if you want to use netcat over your network on another machine.  For example, here's an animated GIF of running netcat on Cygwin for Windows:
 [Animated GIF]({{ site.url }}/assets/images/2016/02/08/raspberry-pi-live-flight-tracker/netcat_output.gif)
 
-## Housekeeping
 
-
+## Sources
