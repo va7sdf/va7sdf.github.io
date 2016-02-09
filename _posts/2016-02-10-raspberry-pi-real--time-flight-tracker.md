@@ -163,11 +163,22 @@ These instructions follow those in sections two through four on [PiAware - dump1
 
 ## Testing
 
-### dump1090 Built-in Web Server
+#### dump1090 Built-in Web Server
 
 With the `--net` argument passed to dump1090, it will also act as a web server on port 8080.  To view the web page, visit [http://192.168.1.31:8080/](http://192.168.1.31:8080/) using your browser.  (Remember to substitute 192.168.1.31 with the IP of your Pi.)
 
-### Netcat \[Advanced\]
+If dump1090 is running, you will see a Google Map featuring Europe.  Once you pan and zoom the map to your location, it should look similar to the screenshot below and, if there's any air traffic in the area your receiver can pick up, those flights will be displayed.
+
+<figure class="ink-image">
+	<a href="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-dump1090.png">
+		<img src="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-dump1090.png">
+	</a>
+	<figcaption class="over-bottom">
+		Boeing 737 MAX First Flight: January 29, 2016
+	</figcaption>
+</figure>
+
+#### Netcat \[Advanced\]
 Netcat should be installed by default on Raspbian.  If you have configured dump1090 with the `--net` argument, you can use netcat to view a comma seperated values (CSV) output of the messages being decoded by dump1090 in real-time.
 
 From the Raspbian terminal, issue the following command line:
