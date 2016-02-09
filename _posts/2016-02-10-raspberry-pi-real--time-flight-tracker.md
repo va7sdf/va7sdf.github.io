@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Raspberry Pi Flight Tracker"
+title: "Raspberry Pi Real-Time Flight Tracker"
 ---
 <!--- Had to use the HTML anchor for FlightRadar24.com per https://github.com/MalcolmRobb/dump1090/pull/71 -->
-One of the many cool things you can do with your Raspberry Pi is to add a special $30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a flight data feeder for <a href="http://flightradar24.com/" rel="noreferrer">FlightRadar24</a> and [FlightAware](https://flightaware.com). In return both sites offer enhanced memberships while you maintain your feed to them. A real bonus for aviation enthusiasts!
+One of the many cool things you can do with your Raspberry Pi is to add a special $30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a real-time flight data feeder for <a href="http://flightradar24.com/" rel="noreferrer">FlightRadar24</a> and [FlightAware](https://flightaware.com). In return both sites offer enhanced memberships while you maintain your feed to them. A real bonus for aviation enthusiasts!
 
 ## Overview
 
@@ -23,7 +23,7 @@ The [NooElec NESDR Mini 2](http://www.amazon.ca/gp/product/B00PAGS0HO/) is recom
 + One USB 2.0 port. (Keep in mind the USB dongle is quite large and can interfere with access to other ports.)
 + Raspbian Wheezy or Jessie (full or lite) either installed via NOOBS or from an image is fine.
 + Accounts with 
-+ Latitude, Longitude and altitude of antenna position - if you plan to use MLAT. (If your smartphones' built-in GPS only shows latitude and longitude, you can use a third-party app to get the altitude. Another option is to use FreeMapTools [Elevation Finder](https://www.freemaptools.com/elevation-finder.htm) or similar to obtain your latitude, longitude, and elevation. If you use the website, remember to then add the height of your antenna from the ground to get the altitude.)
++ Latitude, Longitude and altitude of antenna position - if you plan to use MLAT. (If your smartphones' built-in GPS only shows latitude and longitude, you can use a third-party app to get the altitude. Another option is to use FreeMapTools [Elevation Finder](https://www.freemaptools.com/elevation-finder.htm) or similar to obtain your latitude, longitude, and elevation. If you use the website, remember to then add the height of your antenna from the ground elevation to get the altitude.)
 + Static IP \[recommended\] so you can access the built-in dump1090 web interface; use network tools, such as netcat (nc) to view CSV output for debugging; or, use dynamic dns.
 
 ---
