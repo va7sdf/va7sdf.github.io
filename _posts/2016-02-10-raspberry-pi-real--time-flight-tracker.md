@@ -59,37 +59,37 @@ These instructions are based on the instruction found within the FR24 forum post
 
 		gpg --keyserver pgp.mit.edu --recv-keys 40C430F5
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-live-flight-tracker/fr24feed/01-Import_Key.png)
+	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/01-Import_Key.png)
 
 1.	Add new key to list of trusted keys
 
 		gpg --armor --export 40C430F5 | sudo apt-key add -
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-live-flight-tracker/fr24feed/02-Trust_Key.png)
+	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/02-Trust_Key.png)
 
 1.	Add repository to sources
 
 		sudo sh -c "echo 'deb http://repo.feed.flightradar24.com flightradar24 raspberrypi-stable' >> /etc/apt/sources.list"
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-live-flight-tracker/fr24feed/03-Include_Source.png)
+	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/03-Include_Source.png)
 
 1.	Update the cache
 
 		sudo apt-get update
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-live-flight-tracker/fr24feed/04-Update_Sources.png) (new sources highlighted for your reference)
+	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/04-Update_Sources.png) (new sources highlighted for your reference)
 
 1.	Install FR feeder
 
 		sudo apt-get install fr24feed
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-live-flight-tracker/fr24feed/05-Install_fr24feed.png)
+	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/05-Install_fr24feed.png)
 
 1.	Run the sign-up wizard (even if you already have a sharing key)
 
 		fr24feed --signup
 
-	The actual signup process is quite verbose so I've attached an example walk-through in this [screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-live-flight-tracker/fr24feed/06-Configure_fr24feed.png).
+	The actual signup process is quite verbose so I've attached an example walk-through in this [screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/06-Configure_fr24feed.png).
 
 	Things to mention about the configuration process:
 
@@ -101,13 +101,13 @@ These instructions are based on the instruction found within the FR24 forum post
 
 		sudo service fr24feed restart
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-live-flight-tracker/fr24feed/07-Restart_fr24feed_Service.png)
+	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/07-Restart_fr24feed_Service.png)
 
 1.	Test the FR24 feeder status
 
 		sudo service fr24feed status
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-live-flight-tracker/fr24feed/08-fr24feed_Service_Status.png)
+	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/08-fr24feed_Service_Status.png)
 
 ### FlightAware Feeder Installation
 
@@ -119,25 +119,25 @@ These instructions follow those in sections two through four on [PiAware - dump1
 
 		wget http://flightaware.com/adsb/piaware/files/piaware_2.1-5_armhf.deb
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-live-flight-tracker/piaware/01-Download_piaware_Package.png)
+	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/01-Download_piaware_Package.png)
 
 1.	Install the PiAware package
 
 		sudo dpkg -i piaware_2.1-5_armhf.deb
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-live-flight-tracker/piaware/02-Install_piaware_Package.png)
+	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/02-Install_piaware_Package.png)
 
 1.	Install the required dependencies
 
 		sudo apt-get install -fy
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-live-flight-tracker/piaware/03-Install_Dependencies.png)
+	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/03-Install_Dependencies.png)
 
 1.	Enable automatic and manual PiAware software updates
 
 		sudo piaware-config -autoUpdate 1 -manualUpdate 1
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-live-flight-tracker/piaware/04-Configure_piaware_1.png)
+	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/04-Configure_piaware_1.png)
 
 	Note: Manual updates are performed via your FA profile page [LINK]
 
@@ -145,7 +145,7 @@ These instructions follow those in sections two through four on [PiAware - dump1
 
 		sudo piaware-config -user <username> -password
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-live-flight-tracker/piaware/05-Configure_piaware_2.png)
+	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/05-Configure_piaware_2.png)
 
 	Note: Substitute <username> with your own FA username. After issuing the command, you will be asked for your FA password.
 
@@ -153,13 +153,13 @@ These instructions follow those in sections two through four on [PiAware - dump1
 
 		sudo /etc/init.d/piaware restart
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-live-flight-tracker/piaware/06-Restart_piaware_Service.png)
+	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/06-Restart_piaware_Service.png)
 
 1.	Test the PiAware feeder status
 
 		sudo service piaware status
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-live-flight-tracker/piaware/07-piaware_Service_Status.png)
+	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/07-piaware_Service_Status.png)
 
 ## Testing
 
@@ -175,7 +175,7 @@ From the Raspbian terminal, issue the following command line:
 	nc localhost 30003
 
 'localhost' may be substituted with the IP of your Pi if you want to use netcat over your network on another machine.  For example, here's an animated GIF of running netcat on Cygwin for Windows:
-[Animated GIF]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-live-flight-tracker/netcat_output.gif)
+[Animated GIF]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/netcat_output.gif)
 
 
 ## Sources
