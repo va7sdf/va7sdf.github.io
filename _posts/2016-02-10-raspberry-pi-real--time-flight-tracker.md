@@ -182,16 +182,6 @@ If dump1090 is running, you will see a Google Map featuring Europe.  Once you pa
 	</figcaption>
 </figure>
 
-#### Netcat \[Advanced\]
-Netcat should be installed by default on Raspbian.  If you have configured dump1090 with the `--net` argument, you can use netcat to view a comma seperated values (CSV) output of the messages being decoded by dump1090 in real-time.
-
-From the Raspbian terminal, issue the following command line:
-
-	nc localhost 30003
-
-'localhost' may be substituted with the IP of your Pi if you want to use netcat over your network on another machine.  For example, here's an animated GIF of running netcat on Cygwin for Windows:
-[Animated GIF]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/netcat_output.gif)
-
 ## Conclusion
 
 This article 
