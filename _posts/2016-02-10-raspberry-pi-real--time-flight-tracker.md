@@ -3,7 +3,7 @@ layout: post
 title: "Raspberry Pi Real-Time Flight Tracker"
 ---
 <!--- Had to use the HTML anchor for FlightRadar24.com per https://github.com/MalcolmRobb/dump1090/pull/71 -->
-One of the many cool things you can do with your Raspberry Pi is to add a special $30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a real-time flight data feeder for <a href="http://flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> \(FR24\) and [FlightAware](https://flightaware.com/) \(FA\). In return both sites offer enhanced memberships while you maintain your feed to them. A real bonus for aviation enthusiasts!
+One of the many cool things you can do with your Raspberry Pi is to add a special $30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a real-time flight virtual radar (for radarspotting) or data feeder to <a href="http://flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> \(FR24\) and [FlightAware](https://flightaware.com/) \(FA\). In return both sites offer enhanced memberships while you maintain your feed to them. A real bonus for aviation enthusiasts!
 
 ## Overview
 
@@ -13,9 +13,11 @@ One of the many cool things you can do with your Raspberry Pi is to add a specia
 	</a>
 </figure>
 
-When an aircraft is in flight, it transmits data at regular intervals to ground stations and other aircraft nearby either by an [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_–_broadcast) or a [MODE-S](https://en.wikipedia.org/wiki/Aviation_transponder_interrogation_modes#Mode_S) transponder at a frequency of 1090 MHz.  If it is equiped with an ADS-B transponder, the aircraft reports its GPS position and velocity, in addition to idetifying information.  MODE-S transponders only identify the aircraft.  Both FR24 and FA then derrive the position of these aircraft using [MLAT \(Multilateration\)](https://en.wikipedia.org/wiki/Multilateration).
+When an aircraft is in flight, it transmits data at regular intervals to ground stations either by an [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_–_broadcast) or a [MODE-S](https://en.wikipedia.org/wiki/Aviation_transponder_interrogation_modes#Mode_S) transponder at a frequency of 1090 MHz.  If the aircraft is equiped with an ADS-B transponder, it reports its GPS position and velocity, in addition to idetifying information.  MODE-S transponders only identify the aircraft.  Both FR24 and FA then derrive the position of these aircraft using [MLAT \(Multilateration\)](https://en.wikipedia.org/wiki/Multilateration).
 
 With a DVB-T USB dongle attached and [dump1090](https://github.com/MalcolmRobb/dump1090) software installed, your Pi will be able to receive and decode the ADS-B and MODE-S transmissions.  This is achieved by dump1090 tuning the dongle to the frequency and then outputting the decoded data.  FR24 and FA software then takes this output and forwards it to their respective servers.  This crowd-sourced data helps augment the data these companies receive from official channels, such as the [FAA](https://en.wikipedia.org/wiki/Federal_Aviation_Administration).
+
+
 
 ## Requirements
 
@@ -161,45 +163,11 @@ These instructions follow those in sections two through four on [PiAware - dump1
 
 	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/07-piaware_Service_Status.png)
 
-## Output
-
-<figure class="ink-image">
-	<a href="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-flightradar24.com+live_stream.png">
-		<img src="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-flightradar24.com+live_stream.png">
-	</a>
-	<figcaption>
-		Boeing 737 MAX First Flight (January 29, 2016): FlightRadar24.com Track and Live Stream Landing
-	</figcaption>
-</figure>
-
-Both FR24 and FA are feature rich services.  
-
-<div class="column-group horizontal-gutters">
-    <div class="xlarge-50 large-50 medium-50 small-100 tiny-100">
-      <figure class="ink-image">
-		<a href="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/RESEARCH9.png">
-		  <img src="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/RESEARCH9.png">
-		</a>
-		<figcaption>
-          FlightRadar24.com Screenshot
-        </figcaption>
-      </figure>
-    </div>
-    <div class="xlarge-50 large-50 medium-50 small-100 tiny-100">
-      <figure class="ink-image">
-		<a href="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/flightaware.com.png">
-		  <img src="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/flightaware.com.png">
-		</a>
-        <figcaption>
-          FlightAware.com Screenshot
-        </figcaption>
-      </figure>
-    </div>
-</div>
+## FlightRadar24.com and FlightAware.com Profiles
 
 https://flightaware.com/adsb/stats/user/va7sdf
 
-#### dump1090 Built-in Web Server
+#### dump1090 Virtual Radar
 
 With the `--net` argument passed to dump1090, it will also act as a web server on port 8080.  To view the web page, visit [http://192.168.1.31:8080/](http://192.168.1.31:8080/) using your browser.  (Remember to substitute 192.168.1.31 with the IP of your Pi.)
 
@@ -226,6 +194,42 @@ From the Raspbian terminal, issue the following command line:
 
 ## Conclusion
 
-Since a typical DVB-T dongle costs $20-$30, a Pi feeder is a more affordable option for hobbyists when compared to the expensive higher-end [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_–_broadcast) receivers such as the [Radarcape](http://modesbeast.com/radarcape.html), [Mode-S Beast](http://modesbeast.com/scope.html), [Kinetic SBS Models](http://www.kinetic.co.uk/index.php), or [AirNav RadarBox](https://www.airnavsystems.com/RadarBox/index.html).
+This article 
 
-## Sources
+Since a typical DVB-T dongle costs $20-$30, a Pi feeder is a more affordable option for hobbyists when compared to the expensive higher-end ADS-B receivers such as the [Radarcape](http://modesbeast.com/radarcape.html), [Mode-S Beast](http://modesbeast.com/scope.html), [Kinetic SBS Models](http://www.kinetic.co.uk/index.php), or [AirNav RadarBox](https://www.airnavsystems.com/RadarBox/index.html).
+
+## Screenshot Gallery
+
+<figure class="ink-image">
+	<a href="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-flightradar24.com+live_stream.png">
+		<img src="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-flightradar24.com+live_stream.png">
+	</a>
+	<figcaption>
+		Boeing 737 MAX First Flight (January 29, 2016): FlightRadar24.com Track and Live Stream Landing
+	</figcaption>
+</figure>
+
+<div class="column-group horizontal-gutters">
+    <div class="xlarge-50 large-50 medium-50 small-100 tiny-100">
+      <figure class="ink-image">
+		<a href="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/RESEARCH9.png">
+		  <img src="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/RESEARCH9.png">
+		</a>
+		<figcaption>
+          FlightRadar24.com Screenshot
+        </figcaption>
+      </figure>
+    </div>
+    <div class="xlarge-50 large-50 medium-50 small-100 tiny-100">
+      <figure class="ink-image">
+		<a href="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/flightaware.com.png">
+		  <img src="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/flightaware.com.png">
+		</a>
+        <figcaption>
+          FlightAware.com Screenshot
+        </figcaption>
+      </figure>
+    </div>
+</div>
+
+
