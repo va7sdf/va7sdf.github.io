@@ -161,7 +161,40 @@ These instructions follow those in sections two through four on [PiAware - dump1
 
 	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/07-piaware_Service_Status.png)
 
-## Testing
+## Output
+
+<figure class="ink-image">
+	<a href="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-flightradar24.com+live_stream.png">
+		<img src="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-flightradar24.com+live_stream.png">
+	</a>
+	<figcaption>
+		Boeing 737 MAX First Flight (January 29, 2016): FlightRadar24.com Track and Live Stream Landing
+	</figcaption>
+</figure>
+
+<div class="column-group horizontal-gutters">
+    <div class="xlarge-50 large-50 medium-50 small-100 tiny-100">
+      <figure class="ink-image">
+		<a href="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/RESEARCH9.png">
+		  <img src="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/RESEARCH9.png">
+		</a>
+		<figcaption>
+          FlightRadar24.com Screenshot
+        </figcaption>
+      </figure>
+    </div>
+    <div class="xlarge-50 large-50 medium-50 small-100 tiny-100">
+      <figure class="ink-image">
+		<a href="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/flightaware.com.png">
+		  <img src="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/flightaware.com.png">
+		</a>
+        <figcaption>
+          FlightAware.com Screenshot
+        </figcaption>
+      </figure>
+    </div>
+</div>
+FlightRadar24.com and FlightAware.com Web Sites
 
 #### dump1090 Built-in Web Server
 
@@ -174,7 +207,7 @@ If dump1090 is running, you will see a Google Map featuring Europe.  Once you pa
 		<img src="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-dump1090.png">
 	</a>
 	<figcaption class="over-bottom">
-		Boeing 737 MAX First Flight: January 29, 2016
+		Boeing 737 MAX First Flight (January 29, 2016): dump1090 Web Page
 	</figcaption>
 </figure>
 
