@@ -13,7 +13,7 @@ One of the many cool things you can do with your Raspberry Pi is to add a specia
 	</a>
 </figure>
 
-When an aircraft is in flight, it is transmitting data at regular intervals to ground stations and other aircraft nearby either by an [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_–_broadcast) or a [MODE-S](https://en.wikipedia.org/wiki/Aviation_transponder_interrogation_modes#Mode_S) transponder at a frequency of 1090 MHz.  If it is equiped with an ADS-B transponder, the aircraft reports its GPS position and velocity, in addition to idetifying information.  MODE-S transponders only identify the aircraft.  Both FR24 and FA then derrive the position of these aircraft using [MLAT \(Multilateration\)](https://en.wikipedia.org/wiki/Multilateration).
+When an aircraft is in flight, it transmits data at regular intervals to ground stations and other aircraft nearby either by an [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_–_broadcast) or a [MODE-S](https://en.wikipedia.org/wiki/Aviation_transponder_interrogation_modes#Mode_S) transponder at a frequency of 1090 MHz.  If it is equiped with an ADS-B transponder, the aircraft reports its GPS position and velocity, in addition to idetifying information.  MODE-S transponders only identify the aircraft.  Both FR24 and FA then derrive the position of these aircraft using [MLAT \(Multilateration\)](https://en.wikipedia.org/wiki/Multilateration).
 
 With a DVB-T USB dongle attached and [dump1090](https://github.com/MalcolmRobb/dump1090) software installed, your Pi will be able to receive and decode the ADS-B and MODE-S transmissions.  This is achieved by dump1090 tuning the dongle to the frequency and then outputting the decoded data.  FR24 and FA software then takes this output and forwards it to their respective servers.  This crowd-sourced data helps augment the data these companies receive from official channels, such as the [FAA](https://en.wikipedia.org/wiki/Federal_Aviation_Administration).
 
@@ -172,6 +172,8 @@ These instructions follow those in sections two through four on [PiAware - dump1
 	</figcaption>
 </figure>
 
+Both FR24 and FA are feature rich services.  
+
 <div class="column-group horizontal-gutters">
     <div class="xlarge-50 large-50 medium-50 small-100 tiny-100">
       <figure class="ink-image">
@@ -194,7 +196,8 @@ These instructions follow those in sections two through four on [PiAware - dump1
       </figure>
     </div>
 </div>
-FlightRadar24.com and FlightAware.com Web Sites
+
+https://flightaware.com/adsb/stats/user/va7sdf
 
 #### dump1090 Built-in Web Server
 
