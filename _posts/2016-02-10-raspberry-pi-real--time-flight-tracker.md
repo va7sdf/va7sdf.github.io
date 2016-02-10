@@ -5,6 +5,8 @@ title: "Raspberry Pi Real-Time Flight Tracker"
 <!--- Had to use the HTML anchor for FlightRadar24.com per https://github.com/MalcolmRobb/dump1090/pull/71 -->
 One of the many cool things you can do with your Raspberry Pi is to add a special $30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a real-time flight virtual radar (for radarspotting) or data feeder to <a href="http://flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> \(FR24\) and [FlightAware](https://flightaware.com/) \(FA\). In return both sites offer enhanced memberships while you maintain your feed to them. A real bonus for aviation enthusiasts!
 
+---
+
 ## Overview
 
 <figure class="ink-image">
@@ -17,7 +19,7 @@ When an aircraft is in flight, it transmits data at regular intervals to ground 
 
 With a DVB-T USB dongle attached and [dump1090](https://github.com/MalcolmRobb/dump1090) software installed, your Pi will be able to receive and decode the ADS-B and MODE-S transmissions.  This is achieved by dump1090 tuning the dongle to the frequency and then outputting the decoded data.  FR24 and FA software then takes this output and forwards it to their respective servers.  This crowd-sourced data helps augment the data these companies receive from official channels, such as the [FAA](https://en.wikipedia.org/wiki/Federal_Aviation_Administration).
 
-
+---
 
 ## Requirements
 
@@ -163,11 +165,9 @@ These instructions follow those in sections two through four on [PiAware - dump1
 
 	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/07-piaware_Service_Status.png)
 
-## FlightRadar24.com and FlightAware.com Profiles
+---
 
-https://flightaware.com/adsb/stats/user/va7sdf
-
-#### dump1090 Virtual Radar
+## dump1090 Virtual Radar
 
 With the `--net` argument passed to dump1090, it will also act as a web server on port 8080.  To view the web page, visit [http://192.168.1.31:8080/](http://192.168.1.31:8080/) using your browser.  (Remember to substitute 192.168.1.31 with the IP of your Pi.)
 
@@ -182,11 +182,21 @@ If dump1090 is running, you will see a Google Map featuring Europe.  Once you pa
 	</figcaption>
 </figure>
 
+---
+
+## FlightRadar24.com and FlightAware.com Profiles
+
+https://flightaware.com/adsb/stats/user/va7sdf
+
+---
+
 ## Conclusion
 
 This article 
 
 Since a typical DVB-T dongle costs $20-$30, a Pi feeder is a more affordable option for hobbyists when compared to the expensive higher-end ADS-B receivers such as the [Radarcape](http://modesbeast.com/radarcape.html), [Mode-S Beast](http://modesbeast.com/scope.html), [Kinetic SBS Models](http://www.kinetic.co.uk/index.php), or [AirNav RadarBox](https://www.airnavsystems.com/RadarBox/index.html).
+
+---
 
 ## Screenshot Gallery
 
