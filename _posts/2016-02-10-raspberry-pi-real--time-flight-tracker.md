@@ -3,7 +3,7 @@ layout: post
 title: "Raspberry Pi Real-Time Flight Tracker"
 ---
 <!--- Had to use the HTML anchor for FlightRadar24.com per https://github.com/MalcolmRobb/dump1090/pull/71 -->
-One of the many cool things you can do with your Raspberry Pi is to add a special $30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a real-time flight data feeder for <a href="http://flightradar24.com/" rel="noreferrer">FlightRadar24</a> and [FlightAware](https://flightaware.com). In return both sites offer enhanced memberships while you maintain your feed to them. A real bonus for aviation enthusiasts!
+One of the many cool things you can do with your Raspberry Pi is to add a special $30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a real-time flight data feeder for <a href="http://flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> \(FR24\) and [FlightAware](https://flightaware.com/) \(FA\). In return both sites offer enhanced memberships while you maintain your feed to them. A real bonus for aviation enthusiasts!
 
 ## Overview
 
@@ -22,26 +22,26 @@ The [NooElec NESDR Mini 2](http://www.amazon.ca/gp/product/B00PAGS0HO/) is recom
 
 + One USB 2.0 port. (Keep in mind the USB dongle is quite large and can interfere with access to other ports.)
 + Raspbian Wheezy or Jessie (full or lite) either installed via NOOBS or from an image is fine.
-+ Location for the antenna with no obstructions - outside or in a window is best.
-+ \[optional\] Account(s) with <a href="http://flightradar24.com/" rel="noreferrer">FlightRadar24 Premium</a> and/or [FlightAware](https://flightaware.com), if you plan to feed data.  (Setting up the accounts is beyond the scope of this post.)
-+ \[optional\] Latitude, longitude and altitude of antenna position, if you plan to use MLAT. (If your smartphones' built-in GPS only shows latitude and longitude, you can use a third-party app to get the altitude. Another option is to use FreeMapTools [Elevation Finder](https://www.freemaptools.com/elevation-finder.htm) or similar to obtain your approximate latitude, longitude, and elevation. If you use the website, remember to then add the height of your antenna from the ground elevation to get the altitude.)
-+ \[optional\] SSH access, if you plan to operate your Pi headless.
-+ \[optional\] Static IP so you can access the built-in dump1090 web interface; use network tools, such as netcat (nc) to view CSV output for debugging; or, use dynamic DNS behind your network.
++ Location for the antenna with no obstructions &mdash; outside or in a window is best.
++ \[optional\] Account(s) with <a href="http://flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> and/or [FlightAware](https://flightaware.com/), if you plan to feed data.  (Setting up the accounts is beyond the scope of this post.)
++ \[optional\] Latitude, longitude and altitude of antenna position, if you plan to use MLAT. (If your smartphone's built-in GPS only shows latitude and longitude, you can use a third-party app to get the altitude. Another option is to use FreeMapTools [Elevation Finder](https://www.freemaptools.com/elevation-finder.htm) or similar to obtain your approximate latitude, longitude, and elevation. If you use the website, remember to then add the height of your antenna from the ground elevation to get the altitude.)
++ \[optional\] SSH access, if you plan to operate your Pi headless or remotely.
++ \[optional\] Static IP so you can access the built-in dump1090 web server; use network tools, such as netcat (nc) to view CSV output for debugging; or, use dynamic DNS behind your network.
 
 ---
 
 ## Installation
 
-We will set up the FR24 feeder first. This package includes a fork of [dump1090](https://github.com/MalcolmRobb/dump1090) with MLAT support, which we'll use to provide data to both FR24 and PiAware feeders.
+We will set up the FR24 feeder first. This package includes a fork of [dump1090](https://github.com/MalcolmRobb/dump1090), with MLAT support, which we'll use to provide data to both FR24 and FA feeders.
 
 With each command line, I've included screenshots of sample output for your reference. Keep in mind that your output might differ depending on your system's configuration and current state.
 
-### FlightRadar Feeder Installation
+### FlightRadar24.com Feeder Installation
 
 
 #### tl;dr (too long; didn't read)
 
-This one-liner will download, install, and setup the FlightRadar24.com feeder and will then initiate the user configuration. What happens automatically is effectively the same as the steps followed during a manual install so you're free to use either method.
+This one-liner will download, install, and setup the FR24 feeder and will then initiate the user configuration. What happens automatically is effectively the same as the steps followed during a manual install so you're free to use either method.
 
 	sudo bash -c "$(wget -O - http://repo.feed.flightradar24.com/install_fr24_rpi.sh)"
 
@@ -94,7 +94,7 @@ These instructions are based on the instruction found within the FR24 forum post
 	Things to mention about the configuration process:
 
 	+	*Step 1.2* ???
-	+	*Step 4.3* type the values `--net --net-bi-port 30104`. The first argument `--net` will instruct dump1090 to enable the built-in web interface and `--net-bi-port 30104` is required by the PiAware feeder. You may omit the first argument if you don't plan on using the interface.
+	+	*Step 4.3* type the values `--net --net-bi-port 30104`. The first argument `--net` will instruct dump1090 to enable the built-in web server and `--net-bi-port 30104` is required by the PiAware feeder.
 	+	*Step 6A and 6B* Unless you are debugging an issue with dump1090, I would suggest disabling logging. dump1090 writes a lot of information to the logs and SD cards have a finite number of writes before they are damaged.
 
 1.	Restart the FR24 feeder
