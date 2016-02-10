@@ -7,19 +7,19 @@ One of the many cool things you can do with your Raspberry Pi is to add a specia
 
 ## Overview
 
+<figure class="ink-image">
+	<a href="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Diagram.png">
+		<img src="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Diagram.png">
+	</a>
+</figure>
 
-## DVB-T USB Dongle
+When an aircraft is in flight, it is transmitting data at regular intervals to ground stations and other aircraft nearby either by an [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_–_broadcast) or a [MODE-S](https://en.wikipedia.org/wiki/Aviation_transponder_interrogation_modes#Mode_S) transponder at a frequency of 1090 MHz.  If it is equiped with an ADS-B transponder, the aircraft reports its GPS position and velocity, in addition to idetifying information.  MODE-S transponders only identify the aircraft.  Both FR24 and FA then derrive the position of these aircraft using [MLAT \(Multilateration\)](https://en.wikipedia.org/wiki/Multilateration).
 
-because a typical DVB-T dongle costs $20-$30.
-
-A Pi feeder is a more affordable option for hobbyists when compared to the expensive higher-end [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_–_broadcast) receivers such as the [Radarcape](http://modesbeast.com/radarcape.html), [Mode-S Beast](http://modesbeast.com/scope.html), [Kinetic SBS Models](http://www.kinetic.co.uk/index.php), or [AirNav RadarBox](https://www.airnavsystems.com/RadarBox/index.html).
-
-As long as you purchase a DVB-T dongle based on the Realtek RTL2832U with the Rafael Micro R820T or R820T2 tuner, the Mode S decoder software, dump1090, can interface with it.
-
-The [NooElec NESDR Mini 2](http://www.amazon.ca/gp/product/B00PAGS0HO/) is recommended. I currently use the older [NooElec TV28Tv2](http://www.amazon.ca/gp/product/B00CM3LNMM/)
+With a DVB-T USB dongle attached and [dump1090](https://github.com/MalcolmRobb/dump1090) software installed, your Pi will be able to receive and decode the ADS-B and MODE-S transmissions.  This is achieved by dump1090 tuning the dongle to the frequency and then outputting the decoded data.  FR24 and FA software then takes this output and forwards it to their respective servers.  This crowd-sourced data helps augment the data these companies receive from official channels, such as the [FAA](https://en.wikipedia.org/wiki/Federal_Aviation_Administration).
 
 ## Requirements
 
++ DVB-T USB dongle based on the Realtek RTL2832U with the Rafael Micro R820T or R820T2 tuner. \(The [NooElec NESDR Mini 2](http://www.amazon.ca/gp/product/B00PAGS0HO/) is recommended. I currently use the older [NooElec TV28Tv2](http://www.amazon.ca/gp/product/B00CM3LNMM/).\)
 + One USB 2.0 port. (Keep in mind the USB dongle is quite large and can interfere with access to other ports.)
 + Raspbian Wheezy or Jessie (full or lite) either installed via NOOBS or from an image is fine.
 + Location for the antenna with no obstructions &mdash; outside or in a window is best.
@@ -32,7 +32,7 @@ The [NooElec NESDR Mini 2](http://www.amazon.ca/gp/product/B00PAGS0HO/) is recom
 
 ## Installation
 
-We will set up the FR24 feeder first. This package includes a fork of [dump1090](https://github.com/MalcolmRobb/dump1090), with MLAT support, which we'll use to provide data to both FR24 and FA feeders.
+We will set up the FR24 feeder first. This package includes a fork of dump1090, with MLAT support, which we'll use to provide data to both FR24 and FA feeders.
 
 With each command line, I've included screenshots of sample output for your reference. Keep in mind that your output might differ depending on your system's configuration and current state.
 
@@ -188,5 +188,8 @@ From the Raspbian terminal, issue the following command line:
 'localhost' may be substituted with the IP of your Pi if you want to use netcat over your network on another machine.  For example, here's an animated GIF of running netcat on Cygwin for Windows:
 [Animated GIF]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/netcat_output.gif)
 
+## Conclusion
+
+Since a typical DVB-T dongle costs $20-$30, a Pi feeder is a more affordable option for hobbyists when compared to the expensive higher-end [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_–_broadcast) receivers such as the [Radarcape](http://modesbeast.com/radarcape.html), [Mode-S Beast](http://modesbeast.com/scope.html), [Kinetic SBS Models](http://www.kinetic.co.uk/index.php), or [AirNav RadarBox](https://www.airnavsystems.com/RadarBox/index.html).
 
 ## Sources
