@@ -10,8 +10,8 @@ One of the many cool things you can do with your Raspberry Pi is to add a specif
 ## Overview
 
 <figure class="ink-image">
-	<a href="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Diagram.png">
-		<img src="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Diagram.png">
+	<a href="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Diagram.png">
+		<img src="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Diagram.png">
 	</a>
 </figure>
 
@@ -52,37 +52,37 @@ These manual instructions are based on the those found within the FR24 forum pos
 
 		gpg --keyserver pgp.mit.edu --recv-keys 40C430F5
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/01-Import_Key.png)
+	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/01-Import_Key.png)
 
 1.	Add new key to list of trusted keys
 
 		gpg --armor --export 40C430F5 | sudo apt-key add -
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/02-Trust_Key.png)
+	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/02-Trust_Key.png)
 
 1.	Add repository to sources
 
 		sudo sh -c "echo 'deb http://repo.feed.flightradar24.com flightradar24 raspberrypi-stable' >> /etc/apt/sources.list"
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/03-Include_Source.png)
+	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/03-Include_Source.png)
 
 1.	Update the cache
 
 		sudo apt-get update
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/04-Update_Sources.png) (new sources highlighted for your reference)
+	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/04-Update_Sources.png) (new sources highlighted for your reference)
 
 1.	Install FR feeder
 
 		sudo apt-get install fr24feed
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/05-Install_fr24feed.png)
+	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/05-Install_fr24feed.png)
 
 1.	Run the sign-up wizard (even if you already have a sharing key)
 
 		fr24feed --signup
 
-	The actual signup process is quite verbose so I've attached an example walk-through in this [screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/06-Configure_fr24feed.png).
+	The actual signup process is quite verbose so I've attached an example walk-through in this [screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/06-Configure_fr24feed.png).
 
 	Things to mention about the configuration process:
 
@@ -94,13 +94,13 @@ These manual instructions are based on the those found within the FR24 forum pos
 
 		sudo service fr24feed restart
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/07-Restart_fr24feed_Service.png)
+	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/07-Restart_fr24feed_Service.png)
 
 1.	Test the FR24 feeder status
 
 		sudo service fr24feed status
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/08-fr24feed_Service_Status.png)
+	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/08-fr24feed_Service_Status.png)
 
 ### FlightAware Feeder Installation
 
@@ -112,25 +112,25 @@ These instructions follow those in sections two through four on [PiAware - dump1
 
 		wget http://flightaware.com/adsb/piaware/files/piaware_2.1-5_armhf.deb
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/01-Download_piaware_Package.png)
+	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/01-Download_piaware_Package.png)
 
 1.	Install the PiAware package
 
 		sudo dpkg -i piaware_2.1-5_armhf.deb
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/02-Install_piaware_Package.png)
+	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/02-Install_piaware_Package.png)
 
 1.	Install the required dependencies
 
 		sudo apt-get install -fy
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/03-Install_Dependencies.png)
+	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/03-Install_Dependencies.png)
 
 1.	Enable automatic and manual PiAware software updates
 
 		sudo piaware-config -autoUpdate 1 -manualUpdate 1
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/04-Configure_piaware_1.png)
+	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/04-Configure_piaware_1.png)
 
 	Note: Manual updates are performed via your FA profile page [LINK]
 
@@ -138,7 +138,7 @@ These instructions follow those in sections two through four on [PiAware - dump1
 
 		sudo piaware-config -user <username> -password
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/05-Configure_piaware_2.png)
+	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/05-Configure_piaware_2.png)
 
 	Note: Substitute <username> with your own FA username. After issuing the command, you will be asked for your FA password.
 
@@ -146,13 +146,13 @@ These instructions follow those in sections two through four on [PiAware - dump1
 
 		sudo /etc/init.d/piaware restart
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/06-Restart_piaware_Service.png)
+	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/06-Restart_piaware_Service.png)
 
 1.	Test the PiAware feeder status
 
 		sudo service piaware status
 
-	[screenshot]({{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/07-piaware_Service_Status.png)
+	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/07-piaware_Service_Status.png)
 
 ---
 
@@ -165,8 +165,8 @@ If dump1090 is running, you will see a Google Map featuring Europe. Once you pan
 Keep in mind that only flights transmitting ADS-B data are represented on the map because MODE-S doen't send position information. All flights detected will be listed in the right hand side.
 
 <figure class="ink-image">
-	<a href="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-dump1090.png">
-		<img src="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-dump1090.png">
+	<a href="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-dump1090.png">
+		<img src="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-dump1090.png">
 	</a>
 	<figcaption class="over-bottom">
 		Boeing 737 MAX First Flight (January 29, 2016): dump1090 Web Page
@@ -208,8 +208,8 @@ The directions to the profile page for each site are as follows:
 ## Screenshot Gallery
 
 <figure class="ink-image">
-	<a href="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-flightradar24.com+live_stream.png">
-		<img src="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-flightradar24.com+live_stream.png">
+	<a href="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-flightradar24.com+live_stream.png">
+		<img src="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-flightradar24.com+live_stream.png">
 	</a>
 	<figcaption>
 		Boeing 737 MAX First Flight (January 29, 2016): FlightRadar24.com Track and Live Stream Landing
@@ -219,8 +219,8 @@ The directions to the profile page for each site are as follows:
 <div class="column-group horizontal-gutters">
 	<div class="xlarge-50 large-50 medium-50 small-100 tiny-100">
 		<figure class="ink-image">
-			<a href="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/RESEARCH9.png">
-				<img src="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/RESEARCH9.png">
+			<a href="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/RESEARCH9.png">
+				<img src="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/RESEARCH9.png">
 			</a>
 			<figcaption>
 				FlightRadar24.com Screenshot
@@ -229,8 +229,8 @@ The directions to the profile page for each site are as follows:
 	</div>
 	<div class="xlarge-50 large-50 medium-50 small-100 tiny-100">
 		<figure class="ink-image">
-			<a href="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/flightaware.com.png">
-				<img src="{{ site.url }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/flightaware.com.png">
+			<a href="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/flightaware.com.png">
+				<img src="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/flightaware.com.png">
 			</a>
 			<figcaption>
 				FlightAware.com Screenshot
