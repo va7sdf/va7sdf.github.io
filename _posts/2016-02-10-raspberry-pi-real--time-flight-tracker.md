@@ -197,7 +197,7 @@ The directions to the profile page for each site are as follows:
 
 ## Conclusion
 
-Since a typical DVB-T dongle costs $20-$30, a Pi feeder is a more affordable option for hobbyists when compared to the expensive higher-end ADS-B virtual radars such as the [Radarcape](http://modesbeast.com/radarcape.html) or [AirNav RadarBox](https://www.airnavsystems.com/RadarBox/index.html) or dedicated decoders like the [Mode-S Beast](http://modesbeast.com/scope.html) or [Kinetic SBS](http://www.kinetic.co.uk/index.php) models.
+A Raspberry Pi with DVB-T USB dongle and open source software installed, works out to be a more affordable option for hobbyists when compared to the expensive higher-end ADS-B virtual radars such as the [Radarcape](http://modesbeast.com/radarcape.html) or [AirNav RadarBox](https://www.airnavsystems.com/RadarBox/index.html) or dedicated decoders like the [Mode-S Beast](http://modesbeast.com/scope.html) or [Kinetic SBS](http://www.kinetic.co.uk/index.php) models.  Plus your costs are effectively offset by the premium memberships within a short period of time. This basic configuration can also be extended by adding a high gain antenna and filter to improve reception as well.
 
 ---
 
