@@ -3,7 +3,7 @@ layout: post
 title: "Raspberry Pi Real-Time Flight Tracker"
 ---
 <!--- Had to use the HTML anchor for FlightRadar24.com per https://github.com/MalcolmRobb/dump1090/pull/71 -->
-One of the many cool things you can do with your Raspberry Pi is to add a specific $20-$30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a real-time flight virtual radar (for radarspotting) or data feeder to <a href="http://flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> \(FR24\) and [FlightAware.com](https://flightaware.com/) \(FA\). In return both sites offer enhanced memberships while you maintain your feed to them. A real bonus for aviation enthusiasts!
+One of the many cool things you can do with your Raspberry Pi is to add a specific $20-$30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a real-time flight virtual radar (for radarspotting) or data feeder to <a href="https://flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> \(FR24\) and [FlightAware.com](https://flightaware.com/) \(FA\). In return both sites offer enhanced memberships while you maintain your feed to them. A real bonus for aviation enthusiasts!
 
 ---
 
@@ -15,7 +15,7 @@ One of the many cool things you can do with your Raspberry Pi is to add a specif
 	</a>
 </figure>
 
-When an aircraft is in flight, it transmits data at regular intervals to ground stations either by an [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_–_broadcast) or a [MODE-S](https://en.wikipedia.org/wiki/Aviation_transponder_interrogation_modes#Mode_S) transponder at a frequency of 1090 MHz. If the aircraft is equiped with an ADS-B transponder, it reports its GPS position and air speed, in addition to idetifying information and altitude. MODE-S transponders only identify the aircraft and its altitude. Both FR24 and FA then derrive the position of these aircraft using [MLAT \(Multilateration\)](https://en.wikipedia.org/wiki/Multilateration).
+When an aircraft is in flight, it transmits data at regular intervals to ground stations either by an [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_–_broadcast) or a [MODE-S](https://en.wikipedia.org/wiki/Aviation_transponder_interrogation_modes#Mode_S) transponder at a frequency of 1090 MHz. If the aircraft is equipped with an ADS-B transponder, it reports its GPS position and air speed, in addition to identifying information and altitude. MODE-S transponders only identify the aircraft and its altitude. Both FR24 and FA then derive the position of these aircraft using [MLAT \(Multilateration\)](https://en.wikipedia.org/wiki/Multilateration).
 
 With a DVB-T USB dongle attached and [dump1090](https://github.com/MalcolmRobb/dump1090) software installed, your Pi will be able to receive and decode the ADS-B and MODE-S transmissions. This is achieved by dump1090 tuning the dongle to the frequency and then outputting the decoded data. FR24 and FA software then takes this output and forwards it to their respective servers. This crowd-sourced data helps augment the data these companies receive from official channels, such as the [FAA](https://en.wikipedia.org/wiki/Federal_Aviation_Administration).
 
@@ -25,11 +25,11 @@ You can then view a virtual radar representation of your feed via the built-in d
 
 ## Requirements
 
-+ DVB-T USB dongle based on the Realtek RTL2832U with the Rafael Micro R820T or R820T2 tuner. \(The [NooElec NESDR Mini 2](http://www.amazon.ca/gp/product/B00PAGS0HO/) is recommended. I currently use the older [NooElec TV28Tv2](http://www.amazon.ca/gp/product/B00CM3LNMM/).\)
++ DVB-T USB dongle based on the Realtek RTL2832U with the Rafael Micro R820T or R820T2 tuner. \(The [NooElec NESDR Mini 2](https://www.amazon.ca/gp/product/B00PAGS0HO/) is recommended. I currently use the older [NooElec TV28Tv2](https://www.amazon.ca/gp/product/B00CM3LNMM/).\)
 + One USB 2.0 port. (Keep in mind the USB dongle is quite large and can interfere with access to other ports.)
 + Raspbian Wheezy or Jessie (full or lite) either installed via NOOBS or from an image is fine.
 + Location for the antenna with no obstructions &mdash; outside or in a window is best.
-+ \[optional\] Account(s) with <a href="http://flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> and/or [FlightAware.com](https://flightaware.com/), if you plan to feed data. (Setting up the accounts and requesting feeder keys is beyond the scope of this post.)
++ \[optional\] Account(s) with <a href="https://flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> and/or [FlightAware.com](https://flightaware.com/), if you plan to feed data. (Setting up the accounts and requesting feeder keys is beyond the scope of this post.)
 + \[optional\] Latitude, longitude and altitude of antenna position, if you plan to use MLAT. (If your smartphone's built-in GPS only shows latitude and longitude, you can use a third-party app to get the altitude. Another option is to use FreeMapTools [Elevation Finder](https://www.freemaptools.com/elevation-finder.htm) or similar to obtain your approximate latitude, longitude, and elevation. If you use the website, remember to then add the height of your antenna from the ground elevation to get the altitude.)
 + \[optional\] SSH access, if you plan to operate your Pi headless or remotely.
 + \[optional\] Static IP, if you want a fixed address to access the dump1090 web server, make a SSH connection, or use dynamic DNS behind your network.
@@ -159,7 +159,7 @@ With the `--net` argument passed to dump1090, it will also act as a web server o
 
 If dump1090 is running, you will see a Google Map featuring Europe. Once you pan and zoom the map to your location, it should look similar to the screenshot below and, if there's any air traffic in the area your receiver can pick up, those flights will be displayed.
 
-Keep in mind that only flights transmitting ADS-B data are represented on the map because MODE-S doen't send position information. All flights detected will be listed in the right hand side.
+Keep in mind that only flights transmitting ADS-B data are represented on the map because MODE-S doesn't send position information. All flights detected will be listed in the right hand side.
 
 <figure class="ink-image">
 	<a href="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-dump1090.png">
@@ -180,7 +180,7 @@ The directions to the profile page for each site are as follows:
 
 **FlightRadar24.com**
 
-+	Visit <a href="http://flightradar24.com/premium/" rel="noreferrer">http://flightradar24.com/premium/</a>
++	Visit <a href="https://flightradar24.com/premium/" rel="noreferrer">https://flightradar24.com/premium/</a>
 +	Click on the *Premium* button in the upper right
 +	Sign in with your credentials
 +	Click on the *Your Feeds* in the collection of buttons to the right of the *Your Account* heading
