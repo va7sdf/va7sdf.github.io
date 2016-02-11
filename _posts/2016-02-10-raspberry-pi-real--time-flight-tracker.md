@@ -235,4 +235,10 @@ A Raspberry Pi with DVB-T USB dongle and open source software installed, works o
 	</div>
 </div>
 
+---
 
+## Additional Resources
+
++ ["Fr24feed software Additional FAQs and Info"](http://forum.flightradar24.com/threads/9866-Fr24feed-software-Additional-FAQs-and-Info)
++ [RTL-SDR.COM](http://www.rtl-sdr.com/)
++ [rtl-sdr – OsmoSDR](http://sdr.osmocom.org/trac/wiki/rtl-sdr)
