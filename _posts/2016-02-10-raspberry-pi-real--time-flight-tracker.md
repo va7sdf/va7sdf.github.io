@@ -129,7 +129,7 @@ These instructions follow those in sections two through four on ["PiAware - dump
 
 	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/04-Configure_piaware_1.png)
 
-	Note: Manual updates are performed via your FA profile page [LINK]
+	Note: Manual updates are performed via your FA profile page.
 
 1.	Configure PiAware with your FA account credentials
 
@@ -141,7 +141,7 @@ These instructions follow those in sections two through four on ["PiAware - dump
 
 1.	Restart the feeder
 
-		sudo /etc/init.d/piaware restart
+		sudo service piaware restart
 
 	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/06-Restart_piaware_Service.png)
 
@@ -150,6 +150,10 @@ These instructions follow those in sections two through four on ["PiAware - dump
 		sudo service piaware status
 
 	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/07-piaware_Service_Status.png)
+
+1.	Delete the PiAware feeder package
+
+		rm piaware_2.1-5_armhf.deb
 
 ---
 
@@ -239,6 +243,8 @@ A Raspberry Pi with DVB-T USB dongle and open source software installed, works o
 
 ## Additional Resources
 
-+ ["Fr24feed software Additional FAQs and Info"](http://forum.flightradar24.com/threads/9866-Fr24feed-software-Additional-FAQs-and-Info)
-+ [RTL-SDR.COM](http://www.rtl-sdr.com/)
-+ [rtl-sdr – OsmoSDR](http://sdr.osmocom.org/trac/wiki/rtl-sdr)
++	["Fr24feed software Additional FAQs and Info"](http://forum.flightradar24.com/threads/9866-Fr24feed-software-Additional-FAQs-and-Info)
++	[flightaware/piaware/PiAware-Best-Practices.mediawiki](https://github.com/flightaware/piaware/blob/master/PiAware-Best-Practices.mediawiki)
++	[Virtual Radar from a Digital TV Dongle](http://www.arrl.org/files/file/QST/This%20Month%20in%20QST/January%202014/VirtualRadarJan2013QST.pdf)
++	[RTL-SDR.COM](http://www.rtl-sdr.com/)
++	[rtl-sdr – OsmoSDR](http://sdr.osmocom.org/trac/wiki/rtl-sdr)
