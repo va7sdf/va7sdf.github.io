@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "Raspberry Pi Real-Time Flight Tracker"
+comments: true
 ---
 <!--- Had to use the HTML anchor for FlightRadar24.com per https://github.com/MalcolmRobb/dump1090/pull/71 -->
-One of the many cool things you can do with your Raspberry Pi is to add a specific $20-$30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a real-time flight virtual radar (for radarspotting) or data feeder to <a href="https://flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> \(FR24\) and [FlightAware.com](https://flightaware.com/) \(FA\). In return both sites offer enhanced memberships while you maintain your feed to them. A real bonus for aviation enthusiasts!
+One of the many cool things you can do with your Raspberry Pi is to add a specific $20-$30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a real-time flight virtual radar \(for radarspotting\) or data feeder to <a href="https://flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> \(FR24\) and [FlightAware.com](https://flightaware.com/) \(FA\). In return both sites offer enhanced memberships while you maintain your feed to them. A real bonus for aviation enthusiasts!
 
 ---
 
@@ -26,11 +27,11 @@ You can then view a virtual radar representation of your feed via the built-in d
 ## Requirements
 
 + DVB-T USB dongle based on the Realtek RTL2832U with the Rafael Micro R820T or R820T2 tuner. \(The [NooElec NESDR Mini 2](https://www.amazon.ca/gp/product/B00PAGS0HO/) is recommended. I currently use the older [NooElec TV28Tv2](https://www.amazon.ca/gp/product/B00CM3LNMM/).\)
-+ One USB 2.0 port. (Keep in mind the USB dongle is quite large and can interfere with access to other ports.)
-+ Raspbian Wheezy or Jessie (full or lite) either installed via NOOBS or from an image is fine.
++ One USB 2.0 port. \(Keep in mind the USB dongle is quite large and can interfere with access to other ports.\)
++ Raspbian Wheezy or Jessie \(full or lite\) either installed via NOOBS or from an image is fine.
 + Location for the antenna with no obstructions &mdash; outside or in a window is best.
-+ \[optional\] Account(s) with <a href="https://flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> and/or [FlightAware.com](https://flightaware.com/), if you plan to feed data. (Setting up the accounts and requesting feeder keys is beyond the scope of this post.)
-+ \[optional\] Latitude, longitude and altitude of antenna position, if you plan to use MLAT. (If your smartphone's built-in GPS only shows latitude and longitude, you can use a third-party app to get the altitude. Another option is to use FreeMapTools [Elevation Finder](https://www.freemaptools.com/elevation-finder.htm) or similar to obtain your approximate latitude, longitude, and elevation. If you use the website, remember to then add the height of your antenna from the ground elevation to get the altitude.)
++ \[optional\] Account\(s\) with <a href="https://flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> and/or [FlightAware.com](https://flightaware.com/), if you plan to feed data. \(Setting up the accounts and requesting feeder keys is beyond the scope of this post.\)
++ \[optional\] Latitude, longitude and altitude of antenna position, if you plan to use MLAT. \(If your smartphone's built-in GPS only shows latitude and longitude, you can use a third-party app to get the altitude. Another option is to use FreeMapTools [Elevation Finder](https://www.freemaptools.com/elevation-finder.htm) or similar to obtain your approximate latitude, longitude, and elevation. If you use the website, remember to then add the height of your antenna from the ground elevation to get the altitude.\)
 + \[optional\] SSH access, if you plan to operate your Pi headless or remotely.
 + \[optional\] Static IP, if you want a fixed address to access the dump1090 web server, make a SSH connection, or use dynamic DNS behind your network.
 
@@ -44,7 +45,7 @@ With each command line, I've included screenshots of sample output for your refe
 
 #### FlightRadar24.com Feeder Installation
 
-These manual instructions are based on the those found within the FR24 forum post ["New Flightradar24 feeding software for Raspberry Pie"](http://forum.flightradar24.com/threads/8908-New-Flightradar24-feeding-software-for-Raspberry-Pie?p=66479#post66479) [*sic*].
+These manual instructions are based on the those found within the FR24 forum post ["New Flightradar24 feeding software for Raspberry Pie"](http://forum.flightradar24.com/threads/8908-New-Flightradar24-feeding-software-for-Raspberry-Pie?p=66479#post66479) \[*sic*\].
 
 1.	Import FR24 signing key
 
@@ -68,7 +69,7 @@ These manual instructions are based on the those found within the FR24 forum pos
 
 		sudo apt-get update
 
-	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/04-Update_Sources.png) (new sources highlighted for your reference)
+	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/04-Update_Sources.png) \(new sources highlighted for your reference\)
 
 1.	Install fr24feed feeder
 
@@ -76,7 +77,7 @@ These manual instructions are based on the those found within the FR24 forum pos
 
 	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/fr24feed/05-Install_fr24feed.png)
 
-1.	Run the sign-up wizard (even if you already have a sharing key)
+1.	Run the sign-up wizard \(even if you already have a sharing key\)
 
 		fr24feed --signup
 
@@ -159,7 +160,7 @@ These instructions follow those in sections two through four on ["PiAware - dump
 
 ## dump1090 Virtual Radar
 
-With the `--net` argument passed to dump1090, it will also act as a web server on port 8080. To view the virtual radar web page, visit http://192.168.1.31:8080/ using your browser. (Remember to substitute 192.168.1.31 with the IP of your Pi.)
+With the `--net` argument passed to dump1090, it will also act as a web server on port 8080. To view the virtual radar web page, visit http://192.168.1.31:8080/ using your browser. \(Remember to substitute 192.168.1.31 with the IP of your Pi.\)
 
 If dump1090 is running, you will see a Google Map featuring Europe. Once you pan and zoom the map to your location, it should look similar to the screenshot below and, if there's any air traffic in the area your receiver can pick up, those flights will be displayed.
 
