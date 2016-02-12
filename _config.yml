@@ -12,7 +12,7 @@ github_username: va7sdf
 bitbucket_username: va7sdf
 linkedin_username: va7sdf
 
-rss: true
+rss: false
 
 # home page layout (recommend < 4 small)
 large_excerpts: 1
