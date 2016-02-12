@@ -4,7 +4,7 @@ title: "Raspberry Pi Real-Time Flight Tracker"
 comments: true
 ---
 <!--- Had to use the HTML anchor for FlightRadar24.com per https://github.com/MalcolmRobb/dump1090/pull/71 -->
-One of the many cool things you can do with your Raspberry Pi is to add a specific $20-$30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a real-time flight virtual radar \(for radarspotting\) or data feeder to <a href="https://flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> \(FR24\) and [FlightAware.com](https://flightaware.com/) \(FA\). In return both sites offer enhanced memberships while you maintain your feed to them. A real bonus for aviation enthusiasts!
+One of the many cool things you can do with your Raspberry Pi is to add a specific $20-$30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a real-time flight virtual radar \(for radarspotting\) or data feeder to <a href="https://www.flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> \(FR24\) and [FlightAware.com](https://flightaware.com/) \(FA\). In return both sites offer enhanced memberships while you maintain your feed to them. A real bonus for aviation enthusiasts!
 
 ---
 
@@ -30,7 +30,7 @@ You can then view a virtual radar representation of your feed via the built-in d
 + One USB 2.0 port. \(Keep in mind the USB dongle is quite large and can interfere with access to other ports.\)
 + Raspbian Wheezy or Jessie \(full or lite\) either installed via NOOBS or from an image is fine.
 + Location for the antenna with no obstructions &mdash; outside or in a window is best.
-+ \[optional\] Account\(s\) with <a href="https://flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> and/or [FlightAware.com](https://flightaware.com/), if you plan to feed data. \(Setting up the accounts and requesting feeder keys is beyond the scope of this post.\)
++ \[optional\] Account\(s\) with <a href="https://www.flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> and/or [FlightAware.com](https://flightaware.com/), if you plan to feed data. \(Setting up the accounts and requesting feeder keys is beyond the scope of this post.\)
 + \[optional\] Latitude, longitude and altitude of antenna position, if you plan to use MLAT. \(If your smartphone's built-in GPS only shows latitude and longitude, you can use a third-party app to get the altitude. Another option is to use FreeMapTools [Elevation Finder](https://www.freemaptools.com/elevation-finder.htm) or similar to obtain your approximate latitude, longitude, and elevation. If you use the website, remember to then add the height of your antenna from the ground elevation to get the altitude.\)
 + \[optional\] SSH access, if you plan to operate your Pi headless or remotely.
 + \[optional\] Static IP, if you want a fixed address to access the dump1090 web server, make a SSH connection, or use dynamic DNS behind your network.
@@ -185,7 +185,7 @@ The directions to the profile page for each site are as follows:
 
 **FlightRadar24.com**
 
-+	Visit <a href="https://flightradar24.com/premium/" rel="noreferrer">https://flightradar24.com/premium/</a>
++	Visit <a href="https://www.flightradar24.com/premium/" rel="noreferrer">https://www.flightradar24.com/premium/</a>
 +	Click on the *Premium* button in the upper right
 +	Sign in with your credentials
 +	Click on the *Your Feeds* in the collection of buttons to the right of the *Your Account* heading
