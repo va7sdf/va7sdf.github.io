@@ -12,7 +12,7 @@ One of the many cool things you can do with your Raspberry Pi is to add a specif
 
 <figure class="ink-image">
 	<a href="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Diagram.png">
-		<img src="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Diagram.png">
+		<img src="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Diagram.png" alt="Overview Diagram">
 	</a>
 </figure>
 
@@ -138,7 +138,7 @@ These instructions follow those in sections two through four on ["PiAware - dump
 
 	[screenshot]({{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/piaware/05-Configure_piaware_2.png)
 
-	Note: Substitute <username> with your own FA username. After issuing the command, you will be asked for your FA password.
+	Note: Substitute &lt;username&gt; with your own FA username. After issuing the command, you will be asked for your FA password.
 
 1.	Restart the feeder
 
@@ -168,7 +168,7 @@ Keep in mind that only flights transmitting ADS-B data are represented on the ma
 
 <figure class="ink-image">
 	<a href="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-dump1090.png">
-		<img src="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-dump1090.png">
+		<img src="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-dump1090.png" alt="Boeing 737 MAX First Flight (January 29, 2016): dump1090 Web Page">
 	</a>
 	<figcaption class="over-bottom">
 		Boeing 737 MAX First Flight (January 29, 2016): dump1090 Web Page
@@ -210,7 +210,7 @@ A Raspberry Pi with DVB-T USB dongle and open source software installed, works o
 
 <figure class="ink-image">
 	<a href="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-flightradar24.com+live_stream.png">
-		<img src="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-flightradar24.com+live_stream.png">
+		<img src="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/Boeing_737_Max-flightradar24.com+live_stream.png" alt="Boeing 737 MAX First Flight (January 29, 2016): FlightRadar24.com Track and Live Stream Landing">
 	</a>
 	<figcaption>
 		Boeing 737 MAX First Flight (January 29, 2016): FlightRadar24.com Track and Live Stream Landing
@@ -221,7 +221,7 @@ A Raspberry Pi with DVB-T USB dongle and open source software installed, works o
 	<div class="xlarge-50 large-50 medium-50 small-100 tiny-100">
 		<figure class="ink-image">
 			<a href="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/RESEARCH9.png">
-				<img src="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/RESEARCH9.png">
+				<img src="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/RESEARCH9.png" alt="FlightRadar24.com Screenshot">
 			</a>
 			<figcaption>
 				FlightRadar24.com Screenshot
@@ -231,7 +231,7 @@ A Raspberry Pi with DVB-T USB dongle and open source software installed, works o
 	<div class="xlarge-50 large-50 medium-50 small-100 tiny-100">
 		<figure class="ink-image">
 			<a href="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/flightaware.com.png">
-				<img src="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/flightaware.com.png">
+				<img src="{{ site.baseurl }}/assets/images/2016/02/10/raspberry-pi-real--time-flight-tracker/flightaware.com.png" alt="FlightAware.com Screenshot">
 			</a>
 			<figcaption>
 				FlightAware.com Screenshot
