@@ -4,7 +4,7 @@ title: "Raspberry Pi Real-Time Flight Tracker Updated"
 comments: true
 ---
 <!--- Had to use the HTML anchor for FlightRadar24.com per https://github.com/MalcolmRobb/dump1090/pull/71 -->
-One of the many cool things you can do with your Raspberry Pi is to add a specific $20-$30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a real-time flight virtual radar \(for radarspotting\) or data feeder to <a href="https://www.flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> \(FR24\) and [FlightAware.com](https://flightaware.com/) \(FA\). In return both sites offer enhanced memberships while you maintain your feed to them. A real bonus for aviation enthusiasts!
+One of the many cool things you can do with your Raspberry Pi is to add a specific $20-$30 [DVB-T](https://en.wikipedia.org/wiki/DVB-T) USB dongle and install some software to turn your Pi into a real-time flight virtual radar \(for radarspotting\) or data feeder to <a href="https://www.flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> \(FR24\), [FlightAware.com](https://flightaware.com/) \(FA\), and [PlaneFinder.net](https://planefinder.net/) \(PF\). In return, all sites offer enhanced memberships while you maintain your feed to them. A real bonus for aviation enthusiasts!
 
 ---
 
@@ -16,11 +16,11 @@ One of the many cool things you can do with your Raspberry Pi is to add a specif
 	</a>
 </figure>
 
-When an aircraft is in flight, it transmits data at regular intervals to ground stations either by an [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_–_broadcast) or a [MODE-S](https://en.wikipedia.org/wiki/Aviation_transponder_interrogation_modes#Mode_S) transponder at a frequency of 1090 MHz. If the aircraft is equipped with an ADS-B transponder, it reports its GPS position and air speed, in addition to identifying information and altitude. MODE-S transponders only identify the aircraft and its altitude. Both FR24 and FA then derive the position of these aircraft using [MLAT \(Multilateration\)](https://en.wikipedia.org/wiki/Multilateration).
+When an aircraft is in flight, it transmits data at regular intervals to ground stations either by an [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_–_broadcast) or a [MODE-S](https://en.wikipedia.org/wiki/Aviation_transponder_interrogation_modes#Mode_S) transponder at a frequency of 1090 MHz. If the aircraft is equipped with an ADS-B transponder, it reports its GPS position and air speed, in addition to identifying information and altitude. MODE-S transponders only identify the aircraft and its altitude. FR24, FA, and PF then derive the position of these aircraft using [MLAT \(Multilateration\)](https://en.wikipedia.org/wiki/Multilateration), where possible.
 
-With a DVB-T USB dongle attached and [dump1090](https://github.com/MalcolmRobb/dump1090) software installed, your Pi will be able to receive and decode the ADS-B and MODE-S transmissions. This is achieved by dump1090 tuning the dongle to the frequency and then outputting the decoded data. FR24 and FA software then takes this output and forwards it to their respective servers. This crowd-sourced data helps augment the data these companies receive from official channels, such as the [FAA](https://en.wikipedia.org/wiki/Federal_Aviation_Administration).
+With a DVB-T USB dongle attached, software defined radio \(SDR\) receiver - [librtlsdr0](https://osmocom.org/projects/sdr/wiki/rtl-sdr) - and [dump1090](https://github.com/mutability/dump1090/) package installed, your Pi will be able to receive and decode the ADS-B and MODE-S transmissions. This is achieved by librtlsdr0 tuning the dongle to the frequency and dump1090 decoding the data. FR24, FA, and PF software then take the output and forward it to their respective servers. This crowd-sourced data helps augment the data these companies receive from official channels, such as the [FAA](https://en.wikipedia.org/wiki/Federal_Aviation_Administration).
 
-You can then view a virtual radar representation of your feed via the built-in dump1090 web server. FR24 and FA offer more comprehensive virtual radar maps on their feature rich sites.
+You can then view a virtual radar representation of your feed via the built-in dump1090 webserver. FR24, FA, and PF offer more comprehensive virtual radar maps on their feature rich sites.
 
 ---
 
@@ -28,28 +28,88 @@ You can then view a virtual radar representation of your feed via the built-in d
 
 + DVB-T USB dongle based on the Realtek RTL2832U with the Rafael Micro R820T or R820T2 tuner. \(The [NooElec NESDR Mini 2](https://www.amazon.ca/gp/product/B00PAGS0HO/) is recommended. I currently use the older [NooElec TV28Tv2](https://www.amazon.ca/gp/product/B00CM3LNMM/).\)
 + One USB 2.0 port. \(Keep in mind the USB dongle is quite large and can interfere with access to other ports.\)
-+ Raspbian Wheezy or Jessie \(full or lite\) either installed via NOOBS or from an image is fine.
++ Raspbian Jessie or Stretch \(full or lite\) either installed via NOOBS or from an image is fine.
 + Location for the antenna with no obstructions &mdash; outside or in a window is best.
-+ \[optional\] Account\(s\) with <a href="https://www.flightradar24.com/" rel="noreferrer">FlightRadar24.com</a> and/or [FlightAware.com](https://flightaware.com/), if you plan to feed data. \(Setting up the accounts and requesting feeder keys is beyond the scope of this post.\)
-+ \[optional\] Latitude, longitude and altitude of antenna position, if you plan to use MLAT. \(If your smartphone's built-in GPS only shows latitude and longitude, you can use a third-party app to get the altitude. Another option is to use FreeMapTools [Elevation Finder](https://www.freemaptools.com/elevation-finder.htm) or similar to obtain your approximate latitude, longitude, and elevation. If you use the website, remember to then add the height of your antenna from the ground elevation to get the altitude.\)
-+ \[optional\] SSH access, if you plan to operate your Pi headless or remotely.
-+ \[optional\] Static IP, if you want a fixed address to access the dump1090 web server, make a SSH connection, or use dynamic DNS behind your network.
++ \[optional\] Account\(s\) with <a href="https://www.flightradar24.com/" rel="noreferrer">FlightRadar24.com</a>, [FlightAware.com](https://flightaware.com/), and [PlaneFinder.net](https://planefinder.net/), if you plan to feed data. \(Setting up the accounts and requesting feed authorization is beyond the scope of this post.\)
++ \[optional\] Latitude, longitude, and elevation of antenna position, if you plan to use MLAT. \(Use your smartphone's built-in GPS or a third-party app to get these coordinates.)
++ \[optional\] SSH access, if you plan to connect to a headless system.
++ \[optional\] Static IP, if you want a fixed address when accessing the dump1090 webserver or connecting via SSH.
 
 ---
 
 ## Installation
 
-We will set up the FR24 feeder first. This package includes a fork of dump1090, with MLAT support, which we'll use to provide data to both FR24 and FA feeders.
+Much has changed since my [orginal post](http://192.168.1.111:4000/2016/02/10/raspberry-pi-real-time-flight-tracker.html).  The FR feeder no longer bundles its own version of dump1090 so, we will start by installing dump1090-mutability, the fork recommended by FR, and then the feeders.
 
 With each command line, I've included screenshots of sample output for your reference. Keep in mind that your output might differ depending on your system's configuration and current state.
+
+#### dump1090-mutability Installation
+
+These manual instructions are based on the those found within the FR24 forum post ["New Flightradar24 feeding software for Raspberry Pie"](http://forum.flightradar24.com/threads/8908-New-Flightradar24-feeding-software-for-Raspberry-Pie?p=66479#post66479) \[*sic*\].
+
+1.  Install the dependency, rtlsdr (software defined radio receiver for Realtek RTL2832U)
+
+		sudo apt-get install librtlsdr0
+
+1.	Add udev rules
+
+		sudo wget -O  /etc/udev/rules.d/rtl-sdr.rules https://raw.githubusercontent.com/osmocom/rtl-sdr/master/rtl-sdr.rules
+
+1.	Download the dump1090-mutability package
+
+		wget https://github.com/mutability/dump1090/releases/download/v1.14/dump1090-mutability_1.14_armhf.deb
+
+1.	Install the dump1090-mutability package
+
+		sudo dpkg -i dump1090-mutability_1.14_armhf.deb
+
+	When prompted "Start dump1090 automatically?", press __enter__ to accept the default, "Yes".
+
+1.	Reboot your Pi
+
+1.	Verify dump1090-mutability is running, by
+
+	1.	using the service command, or
+
+			service dump1090-mutability status
+
+		[screenshot]
+
+	1.	using nc (netcat) to view the comma delimited SBS-format output
+
+			nc localhost 30003
+
+		[screenshot]
+
+#### lighttpd Installation
+
+See the section, **External webserver configuration**, on ["dump1090-mutability Debian/Raspbian packages"](https://github.com/mutability/dump1090/#external-webserver-configuration) for detailed instructions.
+
+1.	Install lighttpd
+
+		sudo apt-get install lighttpd
+
+1.	Enable dump1090 configuration
+
+		sudo lighty-enable-mod dump1090
+
+1.	Restart lighttpd
+
+		sudo service lighttpd force-reload
 
 #### FlightRadar24.com Feeder Installation
 
 These manual instructions are based on the those found within the FR24 forum post ["New Flightradar24 feeding software for Raspberry Pie"](http://forum.flightradar24.com/threads/8908-New-Flightradar24-feeding-software-for-Raspberry-Pie?p=66479#post66479) \[*sic*\].
 
+1.	Install the dependency, dirmngr (GNU privacy guard - network certificate management service)
+
+		sudo apt-get install dirmngr
+
+	[screenshot]
+
 1.	Import FR24 signing key
 
-		gpg --keyserver pgp.mit.edu --recv-keys 40C430F5
+		gpg --keyserver pool.sks-keyservers.net --recv-keys 40C430F5
 
 	[screenshot]({{ site.baseurl }}/assets/images/2018/04/01/raspberry-pi-real--time-flight-tracker-updated/fr24feed/01-Import_Key.png)
 
@@ -65,7 +125,7 @@ These manual instructions are based on the those found within the FR24 forum pos
 
 	[screenshot]({{ site.baseurl }}/assets/images/2018/04/01/raspberry-pi-real--time-flight-tracker-updated/fr24feed/03-Include_Source.png)
 
-1.	Update the cache
+1.	Update the cache to include the new repository
 
 		sudo apt-get update
 
@@ -85,7 +145,6 @@ These manual instructions are based on the those found within the FR24 forum pos
 
 	Two things to mention about the configuration process:
 
-	+	*Step 4.3* type the values `--net --net-bi-port 30104`. The first argument `--net` will instruct dump1090 to enable the built-in web server and `--net-bi-port 30104` is required by the PiAware feeder.
 	+	*Step 6A and 6B* disable logging unless you are debugging an issue with dump1090 as it writes a lot of information to the logs and SD cards have a finite number of writes before they are damaged.
 
 1.	Restart the feeder
@@ -94,51 +153,55 @@ These manual instructions are based on the those found within the FR24 forum pos
 
 	[screenshot]({{ site.baseurl }}/assets/images/2018/04/01/raspberry-pi-real--time-flight-tracker-updated/fr24feed/07-Restart_fr24feed_Service.png)
 
-1.	Test the feeder status
+1.	Verify the feeder service is running by
 
-		sudo service fr24feed status
+	1.	using the service command, or
 
-	[screenshot]({{ site.baseurl }}/assets/images/2018/04/01/raspberry-pi-real--time-flight-tracker-updated/fr24feed/08-fr24feed_Service_Status.png)
+			service fr24feed status
+
+		[screenshot]({{ site.baseurl }}/assets/images/2018/04/01/raspberry-pi-real--time-flight-tracker-updated/fr24feed/08-fr24feed_Service_Status.png)
+
+	1.	using the built-in feeder status
+
+			fr24feed-status
+
+		[screenshot]
 
 #### FlightAware Feeder Installation
 
-With dump1090 installed and configured as part of the FR24 feeder installation, we can proceed to install the FA feeder.
-
-These instructions follow those in sections two through four on ["PiAware - dump1090 ADS-B integration with FlightAware ✈ FlightAware"](https://flightaware.com/adsb/piaware/install#2).
+These instructions follow those in section two of ["PiAware - dump1090 ADS-B integration with FlightAware ✈ FlightAware"](https://flightaware.com/adsb/piaware/install#2).
 
 1.	Download the PiAware feeder package
 
-		wget http://flightaware.com/adsb/piaware/files/piaware_2.1-5_armhf.deb
+		wget http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-support/piaware-repository_3.5.3_all.deb
 
 	[screenshot]({{ site.baseurl }}/assets/images/2018/04/01/raspberry-pi-real--time-flight-tracker-updated/piaware/01-Download_piaware_Package.png)
 
-1.	Install the package
+1.	Install the piaware package
 
-		sudo dpkg -i piaware_2.1-5_armhf.deb
+		sudo dpkg -i piaware-repository_3.5.3_all.deb
 
 	[screenshot]({{ site.baseurl }}/assets/images/2018/04/01/raspberry-pi-real--time-flight-tracker-updated/piaware/02-Install_piaware_Package.png)
 
-1.	Install the required dependencies
+1.	Update the cache to include the new repository
 
-		sudo apt-get install -fy
+		sudo apt-get update
 
-	[screenshot]({{ site.baseurl }}/assets/images/2018/04/01/raspberry-pi-real--time-flight-tracker-updated/piaware/03-Install_Dependencies.png)
+	[screenshot]
+
+1.	Install piaware feeder
+
+		sudo apt-get install piaware
+
+	[screenshot]
 
 1.	Enable automatic and manual PiAware software updates
 
-		sudo piaware-config -autoUpdate 1 -manualUpdate 1
+		sudo piaware-config allow-auto-updates yes; sudo piaware-config allow-manual-updates yes
 
 	[screenshot]({{ site.baseurl }}/assets/images/2018/04/01/raspberry-pi-real--time-flight-tracker-updated/piaware/04-Configure_piaware_1.png)
 
 	Note: Manual updates are performed via your FA profile page.
-
-1.	Configure PiAware with your FA account credentials
-
-		sudo piaware-config -user <username> -password
-
-	[screenshot]({{ site.baseurl }}/assets/images/2018/04/01/raspberry-pi-real--time-flight-tracker-updated/piaware/05-Configure_piaware_2.png)
-
-	Note: Substitute &lt;username&gt; with your own FA username. After issuing the command, you will be asked for your FA password.
 
 1.	Restart the feeder
 
@@ -146,21 +209,58 @@ These instructions follow those in sections two through four on ["PiAware - dump
 
 	[screenshot]({{ site.baseurl }}/assets/images/2018/04/01/raspberry-pi-real--time-flight-tracker-updated/piaware/06-Restart_piaware_Service.png)
 
-1.	Test the feeder status
+1.	Verify the feeder service is running
 
 		sudo service piaware status
 
 	[screenshot]({{ site.baseurl }}/assets/images/2018/04/01/raspberry-pi-real--time-flight-tracker-updated/piaware/07-piaware_Service_Status.png)
 
-1.	Delete the PiAware feeder package
+1.	Claim your feeder online at [https://flightaware.com/adsb/piaware/claim](https://flightaware.com/adsb/piaware/claim)
 
-		rm piaware_2.1-5_armhf.deb
+#### PlaneFinder Feeder Installation
+
+These instructions follow those in sections **Client Installation** and **Pi/RTL** under the heading **Installation &amp; Configuration** in ["Microsoft Word - Plane-Finder-Debian-Client.docx"](https://876e4dd3654715fa151c-71f8796d2abe5094889e30919e12901d.ssl.cf3.rackcdn.com/docs/Plane-Finder-Debian-Client.pdf)
+
+1.	Download the pfclient feeder package
+
+		wget http://client.planefinder.net/pfclient_3.7.40_armhf.deb
+
+	[screenshot]
+
+1.	Install the pfclient feeder package
+
+		sudo dpkg -i pfclient_3.7.40_armhf.deb
+
+	[screenshot]
+
+	Note: You don't need to update the cache or install the package using apt-get since this package doesn't add a repository to the sources list.
+
+1.	Configure your feeder online at [http://192.168.1.31:30053/](http://192.168.1.31:30053/) \(Remember to substitute 192.168.1.31 with the IP of your Pi.\)
+
+#### OpenSky-Network Feeder Installation
+
+See [OpenSky Feeder for Dump1090 (Raspberry Pi-based)](https://opensky-network.org/community/projects/30-dump1090-feeder) for detailed instructions.
+
+1.	Download the opensky-feeder package
+
+		wget https://opensky-network.org/files/firmware/opensky-feeder_latest_armhf.deb
+
+	[screenshot]
+
+1.	Install the opensky-feeder package
+
+		sudo dpkg -i opensky-feeder_latest_armhf.deb
+
+	[screenshot]
 
 ---
 
 ## dump1090 Virtual Radar
 
-With the `--net` argument passed to dump1090, it will also act as a web server on port 8080. To view the virtual radar web page, visit http://192.168.1.31:8080/ using your browser. \(Remember to substitute 192.168.1.31 with the IP of your Pi.\)
+dump1090 can be configured to work with a standalone webserver to display a virtual radar web page over your local network.  The authors of dump1090 recommend using [lighttpd](https://www.lighttpd.net/) rather than webserver the dump1090 built-in webserver.
+
+
+  When http://192.168.1.31:8080/ using your browser. \(Remember to substitute 192.168.1.31 with the IP of your Pi.\)
 
 If dump1090 is running, you will see a Google Map featuring Europe. Once you pan and zoom the map to your location, it should look similar to the screenshot below and, if there's any air traffic in the area your receiver can pick up, those flights will be displayed.
 
