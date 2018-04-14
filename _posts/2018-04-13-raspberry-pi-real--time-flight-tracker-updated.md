@@ -39,7 +39,7 @@ You can then install a webserver and configure it to deliver a local virtual rad
 
 ## Installation
 
-Much has changed since my [original post](http://192.168.1.111:4000/2016/02/10/raspberry-pi-real-time-flight-tracker.html).  The FR feeder no longer bundles its own version of dump1090 so, we will start by installing dump1090-mutability, the fork recommended by FR, and then the feeders.
+Much has changed since my [original post](http://gordon.celesta.me/2016/02/10/raspberry-pi-real-time-flight-tracker.html).  The FR feeder no longer bundles its own version of dump1090 so, we will start by installing dump1090-mutability, the fork recommended by FR, and then the feeders.
 
 With some instructions, I've included screenshots of sample output for your reference. Keep in mind that your output might differ depending on your system's current state.
 
