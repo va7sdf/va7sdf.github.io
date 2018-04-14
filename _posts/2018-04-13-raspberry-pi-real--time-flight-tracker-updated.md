@@ -39,7 +39,7 @@ You can then install a webserver and configure it to deliver a local virtual rad
 
 ## Installation
 
-Much has changed since my [orginal post](http://192.168.1.111:4000/2016/02/10/raspberry-pi-real-time-flight-tracker.html).  The FR feeder no longer bundles its own version of dump1090 so, we will start by installing dump1090-mutability, the fork recommended by FR, and then the feeders.
+Much has changed since my [original post](http://192.168.1.111:4000/2016/02/10/raspberry-pi-real-time-flight-tracker.html).  The FR feeder no longer bundles its own version of dump1090 so, we will start by installing dump1090-mutability, the fork recommended by FR, and then the feeders.
 
 With some instructions, I've included screenshots of sample output for your reference. Keep in mind that your output might differ depending on your system's current state.
 
@@ -53,7 +53,7 @@ These manual instructions are based on the those found within the FR24 forum pos
 
 1.	Add udev rules
 
-		sudo wget -O  /etc/udev/rules.d/rtl-sdr.rules https://raw.githubusercontent.com/osmocom/rtl-sdr/master/rtl-sdr.rules
+		sudo wget -O /etc/udev/rules.d/rtl-sdr.rules https://raw.githubusercontent.com/osmocom/rtl-sdr/master/rtl-sdr.rules
 
 1.	Download the dump1090-mutability package
 
@@ -137,7 +137,7 @@ These manual instructions are based on the those found within the FR24 forum pos
 
 		fr24feed --signup
 
-	The actual signup process is quite verbose so I've attached an example walk-through in this [screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/fr24feed/06-Configure_fr24feed.png).
+	The actual signup process is quite verbose, so I've attached an example walk-through in this [screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/fr24feed/06-Configure_fr24feed.png).
 
 	Note: *Step 6A* and *6B* disable logging. dump1090, with debugging on, writes a lot of information to the logs and SD cards have a finite number of writes before they are damaged.
 
@@ -215,7 +215,21 @@ These instructions follow those in sections **Client Installation** and **Pi/RTL
 
 	Note: You don't need to update the cache or install the package using apt-get since this package doesn't add a repository to the sources list.
 
-1.	Configure your feeder online at [http://192.168.1.31:30053/](http://192.168.1.31:30053/) \(Remember to substitute 192.168.1.31 with the IP of your Pi.\)
+1.	Configure your feeder at [http://192.168.1.31:30053/](http://192.168.1.31:30053/) \(Remember to substitute 192.168.1.31 with the IP of your Pi.\)
+
+	1.	On the first page, type the:
+
+		+	email address associated with your account, and
+		+	latitude and longitude of your antenna
+
+	1.	Click the *Create a new sharecode* button
+
+	1.	On the second page, type:
+
+		+	**127.0.0.1** in the *IP address* text box, and
+		+	**30005** in the *Port number* text box
+
+	1.	Click the *Complete configuration* button
 
 #### OpenSky-Network Feeder Installation
 
@@ -233,13 +247,23 @@ See [OpenSky Feeder for Dump1090 (Raspberry Pi-based)](https://opensky-network.o
 
 	[screenshot]
 
+1.	The opensky-feeder install will ask for the following information on separate ncurses screens:
+
+	+	latitude of the antenna
+	+	longitude of the antenna
+	+	altitude of the antenna
+	+   your OpenSky-Network username
+	+	serial number of your existing receiver, which you will leave blank for a new receiver
+	+	port for the output from dump1090, type **30005**, and
+	+	host of the system running dump1090, type **localhost**
+
 ---
 
 ## dump1090 Virtual Radar
 
 Visit http://192.168.1.31:8080/ in your browser to view the dump1090 virtual radar. \(Remember to substitute 192.168.1.31 with the IP of your Pi.\) You should see a Google Map of Europe. Once you pan and zoom the map to your location, it should look similar to the screenshot below and, if there's any air traffic in the area your receiver can pick up, those flights will be displayed.
 
-Keep in mind that only flights transmitting ADS-B data are represented on the map because MODE-S doesn't send position information. All flights detected will be listed in the right hand side.
+Keep in mind that only flights transmitting ADS-B data are represented on the map because MODE-S doesn't send position information. All flights detected will be listed in the right-hand side.
 
 <figure class="ink-image">
 	<a href="{{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/Boeing_737_Max-dump1090.png">
@@ -254,7 +278,7 @@ Keep in mind that only flights transmitting ADS-B data are represented on the ma
 
 ## FlightRadar24.com, FlightAware.com, and PlaneFinder.net Profiles
 
-Each website provides a profile page with some statistics about your feed. FA is far more comprehensive and you can even send commands to your Pi from your profile page. FA is also configured by default to alert you by email if your feeder is down.
+Each website provides a profile page with some statistics about your feed. FA is far more comprehensive, and you can even send commands to your Pi from your profile page. FA is also configured by default to alert you by email if your feeder is down.
 
 The directions to the profile page for each site are as follows:
 
@@ -277,14 +301,14 @@ The directions to the profile page for each site are as follows:
 
 +	Visit [https://planefinder.net/sharing/login](https://planefinder.net/sharing/login)
 +	Sign in with your credentials
-+	Click your profile avatar, located on the right of the top navigation bar, and then chooose *Account Settings*.
++	Click your profile avatar, located on the right of the top navigation bar, and then choose *Account Settings*.
 +	In the section, **Your receivers**, click on the link that corresponds to the *share code* of the receiver you want to view.
 
 ---
 
 ## Conclusion
 
-A Raspberry Pi with DVB-T USB dongle and open source software installed, works out to be a more affordable option for hobbyists when compared to the expensive higher-end ADS-B virtual radars such as the [Radarcape](http://modesbeast.com/radarcape.html) or [AirNav RadarBox](https://www.airnavsystems.com/RadarBox/index.html) or dedicated decoders like the [Mode-S Beast](http://modesbeast.com/scope.html) or [Kinetic SBS](http://www.kinetic.co.uk/index.php) models.  Plus your costs are effectively offset by the premium memberships within a short period of time. This basic configuration can also be extended by adding a high gain antenna and filter to improve reception as well.
+A Raspberry Pi with DVB-T USB dongle and open source software installed, works out to be a more affordable option for hobbyists when compared to the expensive higher-end ADS-B virtual radars such as the [Radarcape](http://modesbeast.com/radarcape.html) or [AirNav RadarBox](https://www.airnavsystems.com/RadarBox/index.html) or dedicated decoders like the [Mode-S Beast](http://modesbeast.com/scope.html) or [Kinetic SBS](http://www.kinetic.co.uk/index.php) models.  Plus, your costs are effectively offset by the premium memberships within a short period of time. This basic configuration can also be extended by adding a high gain antenna and filter to improve reception as well.
 
 ---
 
@@ -326,6 +350,7 @@ A Raspberry Pi with DVB-T USB dongle and open source software installed, works o
 
 ## Additional Resources
 
++	[FlightAware: ADS-B Network News newsletter archive](https://us14.campaign-archive.com/home/?u=7bd8986a8ad54991c01e23939&id=a7b1182a9d)
 +	["Fr24feed software Additional FAQs and Info"](http://forum.flightradar24.com/threads/9866-Fr24feed-software-Additional-FAQs-and-Info)
 +	[flightaware/piaware/PiAware-Best-Practices.mediawiki](https://github.com/flightaware/piaware/blob/master/PiAware-Best-Practices.mediawiki)
 +	[Virtual Radar from a Digital TV Dongle](http://www.arrl.org/files/file/QST/This%20Month%20in%20QST/January%202014/VirtualRadarJan2013QST.pdf)
