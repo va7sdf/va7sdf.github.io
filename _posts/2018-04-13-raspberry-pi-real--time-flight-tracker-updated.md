@@ -73,13 +73,13 @@ These manual instructions are based on the those found within the FR24 forum pos
 
 			service dump1090-mutability status
 
-		[screenshot]
+		[screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/01.png)
 
 	1.	using nc (netcat) to view the comma delimited SBS-format output
 
 			nc localhost 30003
 
-		[screenshot]
+		[screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/02.png)
 
 #### [Optional] lighttpd Installation
 
@@ -111,13 +111,13 @@ These manual instructions are based on the those found within the FR24 forum pos
 
 		gpg --keyserver pool.sks-keyservers.net --recv-keys 40C430F5
 
-	[screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/fr24feed/01-Import_Key.png)
+	[screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/03.png)
 
 1.	Add new key to list of trusted keys
 
 		gpg --armor --export 40C430F5 | sudo apt-key add -
 
-	[screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/fr24feed/02-Trust_Key.png)
+	[screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/04.png)
 
 1.	Add FR24 repository to sources
 
@@ -127,8 +127,6 @@ These manual instructions are based on the those found within the FR24 forum pos
 
 		sudo apt-get update
 
-	[screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/fr24feed/04-Update_Sources.png) \(new sources highlighted for your reference\)
-
 1.	Install fr24feed feeder
 
 		sudo apt-get install fr24feed
@@ -137,7 +135,7 @@ These manual instructions are based on the those found within the FR24 forum pos
 
 		fr24feed --signup
 
-	The actual signup process is quite verbose, so I've attached an example walk-through in this [screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/fr24feed/06-Configure_fr24feed.png).
+	The actual signup process is quite verbose, so I've attached an example walk-through in this [screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/05.png).
 
 	Note: *Step 6A* and *6B* disable logging. dump1090, with debugging on, writes a lot of information to the logs and SD cards have a finite number of writes before they are damaged.
 
@@ -151,13 +149,13 @@ These manual instructions are based on the those found within the FR24 forum pos
 
 			service fr24feed status
 
-		[screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/fr24feed/08-fr24feed_Service_Status.png)
+		[screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/01.png)
 
 	1.	using the built-in feeder status
 
 			fr24feed-status
 
-		[screenshot]
+		[screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/01.png)
 
 #### FlightAware Feeder Installation
 
@@ -175,8 +173,6 @@ These instructions follow those in section two of, ["PiAware - dump1090 ADS-B in
 
 		sudo apt-get update
 
-	[screenshot] \(new sources highlighted for your reference\)
-
 1.	Install piaware feeder
 
 		sudo apt-get install piaware
@@ -185,7 +181,7 @@ These instructions follow those in section two of, ["PiAware - dump1090 ADS-B in
 
 		sudo piaware-config allow-auto-updates yes; sudo piaware-config allow-manual-updates yes
 
-	[screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/piaware/04-Configure_piaware_1.png)
+	[screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/06.png)
 
 	Note: Manual updates are performed via your FA profile page.
 
@@ -197,7 +193,7 @@ These instructions follow those in section two of, ["PiAware - dump1090 ADS-B in
 
 		sudo service piaware status
 
-	[screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/piaware/07-piaware_Service_Status.png)
+	[screenshot]({{ site.baseurl }}/assets/images/2018/04/13/raspberry-pi-real--time-flight-tracker-updated/07.png)
 
 1.	Claim your feeder online at [https://flightaware.com/adsb/piaware/claim](https://flightaware.com/adsb/piaware/claim)
 
@@ -239,13 +235,9 @@ See [OpenSky Feeder for Dump1090 (Raspberry Pi-based)](https://opensky-network.o
 
 		wget https://opensky-network.org/files/firmware/opensky-feeder_latest_armhf.deb
 
-	[screenshot]
-
 1.	Install the opensky-feeder package
 
 		sudo dpkg -i opensky-feeder_latest_armhf.deb
-
-	[screenshot]
 
 1.	The opensky-feeder install will ask for the following information on separate ncurses screens:
 
