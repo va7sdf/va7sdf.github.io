@@ -53,7 +53,7 @@ These manual instructions are based on the those found within the FR24 forum pos
 
 1.	Add udev rules
 
-		sudo wget -O /etc/udev/rules.d/rtl-sdr.rules https://raw.githubusercontent.com/osmocom/rtl-sdr/master/rtl-sdr.rules
+		sudo wget -O /etc/udev/rules.d/99-rtl-sdr.rules https://raw.githubusercontent.com/osmocom/rtl-sdr/master/rtl-sdr.rules
 
 1.	Download the dump1090-mutability package
 
