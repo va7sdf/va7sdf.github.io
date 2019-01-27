@@ -3,7 +3,7 @@ title: Inkling
 description: >
     A personal blog for Gordon M. Celesta about *NIX, human-computer interaction, web design, and other odds-n-sods...
 
-CDN: "http://fastly.ink.sapo.pt/3.1.10"
+CDN: "https://ink.global.ssl.fastly.net/3.1.10"
 
 #url: "http://gordon.celesta.me"
 email: gordo@sdf.lonestar.org
