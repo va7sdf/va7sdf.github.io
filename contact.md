@@ -4,7 +4,7 @@ title: Contact
 permalink: /contact/
 fa: fa-envelope-o
 ---
-<form action="http://getsimpleform.com/messages?form_api_token=0f0410be31898c8517978d2680d05b86" method="post">
+<form action="https://getsimpleform.com/messages?form_api_token=e8b66bf8f8b9121a72951f763374d2f4" method="post">
 	<input type="hidden" name="redirect_to" value="{{ site.url }}/thank-you/" />
 	<label for="name">Name</label>
 	<br />
