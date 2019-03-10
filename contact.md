@@ -16,7 +16,7 @@ fa: fa-envelope-o
 	<br />
 	<label for="email">Message</label>
 	<br />
-	<textarea id="message" name="message" placeholder="Message" rows="8" cols="50"></textarea>
+	<textarea id="content" name="content" placeholder="Message" rows="8" cols="50"></textarea>
 	<br />
 	<input type="submit" value="Submit" />
 </form>
