@@ -40,13 +40,12 @@ Jekyll generates a site offline, which is then uploaded to a server.  Effectivel
 *	Security (no database or PHP security issues)
 *	Speed (HTML and image only)
 *	GitHub integration (free hosting)
-*	1337
 
 ##### Jekyll Cons
 *	Third-party functionality
 	*	Forms
 	*	Comments
-*	Hosting synchronization
+*	File synchronization with host
 
 ---
 
@@ -88,7 +87,7 @@ For this presentation, we'll only cover custom variables and the predefined vari
 
 Previous version of Jekyll stored the theme files in the same directory as the other files for the site.  The current version uses gem-based themes and these are located in your user gems folder.  The Gemfile, located in the root of your site, indicates the location of the theme and the theme used is specified in the _config.yml.
 
-Both have the basic directory structure:
+Both old and new style themes have the basic directory structure:
 
 	assets
 	_includes
@@ -103,7 +102,7 @@ Both have the basic directory structure:
 
 *	**_sass** [optional] is the location of `*.scss` files used to generate CSS for your site.
 
-If you want to change a gem-based theme, you create the directory or directories that correspond to the files you want to change.  You then add file(s) with your changes to these directories.  Think of this similar to function overloading or WordPress Child Themes.  To view the theme's contents, execute: `tree $(bundle show minima)`
+If you want to modify a gem-based theme, you create the directory or directories that correspond to the files you want to modify.  You then add file(s) with your changes to these directories.  Think of this similar to function overloading or WordPress Child Themes.  To view the theme's contents, execute: `tree $(bundle show minima)`.
 
 Changing themes is beyond the scope of this presentation.
 
@@ -114,13 +113,13 @@ Changing themes is beyond the scope of this presentation.
 
 ## GitHub Pages
 
-GitHub offers two types of web hosting: project (per-project) and user/organization (per-account).  Both also allow you to use your own domain name instead of the generic *github.io*.
+GitHub offers two types of web hosting: project (per-project) and user/organization (per-account).  Both also allow you to use your own domain name instead of the shared *github.io*.
 
 The main differences between project and user/organization sites are:
 
 *	All commits must be made to the *master* branch when working with a user/organization site.  Project commits may be made to the *master* branch; a */doc* folder; or, a different branch, such as *gh-pages*.
 *	The URL for a user/organization site is *username.github.io*.  For a project site, the URL is *username.github.io/project*.
-*	When using a custom domain name, the domain name replaces the username.github.io.
+*	When using a custom domain name, the domain name replaces the *username.github.io*.
 
 These steps will walk through creating a user/organization site.
 
@@ -189,6 +188,7 @@ You can then develop your site directly on the GitHub website or clone your site
 *	Sass: <https://sass-lang.com/>
 *	CoffeeScript: <https://coffeescript.org/>
 *	GitHub Pages: <https://pages.github.com/>
+*	Video series (YouTube): <https://www.youtube.com/watch?v=T1itpPvFWHI&list=PLLAZ4kZ9dFpOPV5C5Ay0pHaa0RJFhcmcB&index=1>
 
 ---
 
