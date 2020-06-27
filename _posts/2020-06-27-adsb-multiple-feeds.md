@@ -122,7 +122,10 @@ ADSBHub operates differently.  Rather than installing any dedicated software, th
 Many of the feeders include their own web server or use NGINX for local data viewing.  Aircraft your receiver gets messages from will be plotted on a map with varying levels of detail.  (Pi-hole has a tendency to intercept these requests and display a page with the following message, "Pi-hole: Your black hole for Internet advertisements
 Did you mean to go to the admin panel?"  I haven't taken the time to fix this issue and will likely install Pi-hole on another device as my solution.)
 
-You can also install [Virtual Radar Server](http://www.virtualradarserver.co.uk/Download.aspx) on Windows / Mac / Linux.  It will serve up a virtual radar web page from your own computer.  This is another option for anyone with Pi-hole installed on the same device as the feeders.
+You can also install [Virtual Radar Server](http://www.virtualradarserver.co.uk/Download.aspx) on Windows / Mac / Linux.  It will serve up a virtual radar web page from your own computer.  This is another option for anyone with Pi-hole installed on the same device as the feeders.  Here are screenshots of the Virtual Radar Server in action and the configuration settings for my setup.
+
+[<img src="/assets/images/2020/06/27/adsb-multiple-feeds/virtual-radar-server.jpg" style="width: 240px; margin: 10px;">](/assets/images/2020/06/27/adsb-multiple-feeds/virtual-radar-server.jpg)
+[<img src="/assets/images/2020/06/27/adsb-multiple-feeds/virtual-radar-server-config.jpg" style="width: 240px; margin: 10px;">](/assets/images/2020/06/27/adsb-multiple-feeds/virtual-radar-server-config.jpg)
 
 ## Further Reading
 Craig ([http://www.makikiweb.com/](http://www.makikiweb.com/)) emailed me the article, "The Datawake ADS-B PiAware Receiver" [(https://microship.com/datawake-ads-b-piaware-receiver/)](https://microship.com/datawake-ads-b-piaware-receiver/).  It dives deeper into the hardware side of ADS-B feeders.
